@@ -9,7 +9,7 @@ public class GroupAnagrams {
 
     public static void main(String[] args) {
 
-        String[] strList = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        String[] strList = {"eat", "tea", "tan", "ate", "nat", "bat", "cat", "act"};
 
         List<List<String>> anagramList = groupAnagrams(strList);
         for (List<String> anagram : anagramList) {
