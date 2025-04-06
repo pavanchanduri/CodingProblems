@@ -21,6 +21,7 @@ public class MatrixRotation180Degrees {
             right--;
         }
 
+        //Swap the rows
         int top = 0, bottom = arr.length-1;
         while(top<bottom) {
             for(int col=0;col<arr.length;col++) {

@@ -12,7 +12,14 @@ public class Quadruplets {
         // Store all pairs for every possible pairs sum
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                mp.computeIfAbsent(arr[i] + arr[j], k -> new ArrayList<>()).add(new int[]{i, j});
+                if(mp.containsKey(arr[i]+arr[j])) {
+                    mp.get(arr[i]+arr[j]).add(new int[]{i, j});
+                } else {
+                    List<int[]> list = new ArrayList<>();
+                    list.add(new int[]{i, j});
+                    mp.put(arr[i]+arr[j], list);
+                }
+                //mp.computeIfAbsent(arr[i] + arr[j], k -> new ArrayList<>()).add(new int[]{i, j});
             }
         }
 
