@@ -1,6 +1,9 @@
 package Arrays;
 
-//Idea is to first transpose the matrix followed by swapping of the rows
+/*
+1. Transpose the matrix
+2. Swap the rows
+ */
 public class MatrixRotation270Degrees {
     public static void main(String[] args) {
         int[][] arr = {
