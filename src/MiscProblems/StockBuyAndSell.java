@@ -1,6 +1,6 @@
 package MiscProblems;
 
-/*
+/**
 1. Set the initial buy price as prices[0]
 2. Iterate in the array from element 2 i.e., index 1
 3. If the current price is less than previous buy price, set new buy price as prices[i]

@@ -1,8 +1,8 @@
 package Arrays;
 
 /**
- * 90 degrees rotation -> Idea is to first transpose the matrix followed by swapping of the columns
- */
+ 90 degrees rotation -> Idea is to first transpose the matrix followed by swapping of the columns
+ **/
 public class MatrixRotation {
     public static void main(String[] args) {
         int[][] arr = {

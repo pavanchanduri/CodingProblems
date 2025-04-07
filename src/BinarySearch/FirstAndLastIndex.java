@@ -5,7 +5,7 @@ package BinarySearch;
    making right index = mid-1 and accordingly change the first index as you find it in the left window
 2. In the next loop, repeat the same as Step 1 but in the right window by making left index = mid+1 after finding
    the target element which will be marked as the last index
- **/
+ */
 public class FirstAndLastIndex {
 
     public static void main(String[] args) {

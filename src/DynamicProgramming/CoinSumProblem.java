@@ -14,7 +14,7 @@ minimum of minCoins[11] and 1+minCoins[10] as we pick coin value 1 and so on til
 ---------------------------------------------------------------------------------------
 | Min Coins | 0  |  1  |  2  |  3  |  4  |  1  |  1  |  2  |  3  |  1  |  2   |  3   |
 --------------------------------------------------------------------------------------
- **/
+ */
 public class CoinSumProblem {
 
     public static void main(String[] args) {

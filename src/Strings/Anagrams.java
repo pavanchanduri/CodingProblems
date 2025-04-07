@@ -7,7 +7,7 @@ import java.util.Scanner;
 2. Iterate through the first string and add frequency count character wise in to the array
 3. Iterate through the second string and subtract the frequency count character wise from the array
 4. Iterate through the array and if any count != 0, return false i.e., Strings are not anagrams
- **/
+ */
 public class Anagrams {
 
     public static void main(String[] args) {

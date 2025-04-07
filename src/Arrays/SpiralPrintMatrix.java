@@ -6,7 +6,7 @@ package Arrays;
 3. Print the last row and decrement rMax
 4. Print the first column and increment cMin
 5. Print the above steps till all elements in the Matrix are printed i.e., count equals M*N
- **/
+ */
 public class SpiralPrintMatrix {
 
     public static void main(String[] args) {

@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ 1. Based on the string, generate a frequency string E.g., a1b2c3......
+ 2. Group strings based on the frequency string in to a map
+ */
 public class GroupAnagrams {
 
     public static void main(String[] args) {

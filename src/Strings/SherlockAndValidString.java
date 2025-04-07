@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Collections;
 
+/**
+1. Deals with string where frequencies of all characters are same
+2. You can have at most one character with a frequency 1 more than the rest which can be removed
+3. Also, you can have one character with 1 as the frequency which can be removed
+ */
 public class SherlockAndValidString {
 
-    //Deals with string where frequencies of all characters are same
-    //You can have at most one character with a frequency 1 more than the rest which can be removed
-    //Also you can have one character with 1 as the frequency which can be removed
+
     public static void main(String[] args) {
 
         String str = new Scanner(System.in).nextLine();

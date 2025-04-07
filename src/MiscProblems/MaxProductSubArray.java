@@ -1,6 +1,6 @@
 package MiscProblems;
 
-/*
+/**
 1. Take two pointer approach and iterative over the array from both sides
 2. If any product becomes zero, make the product 1 so that the new product gets computed
    from the next element onwards.

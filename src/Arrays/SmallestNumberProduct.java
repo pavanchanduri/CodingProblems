@@ -8,7 +8,7 @@ import java.util.Scanner;
 2. Start a loop with divisor as 9 till 2 and divide the number with the divisor
 3. Loop till the remainder becomes zero and append the number of times divisor was used to the answer string
 4. If the number becomes 1 -> we found the answer or else return -1
- **/
+ */
 public class SmallestNumberProduct {
 
     //Generate the Smallest Number whose product is equal to N
