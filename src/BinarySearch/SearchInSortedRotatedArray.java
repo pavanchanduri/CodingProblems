@@ -2,12 +2,12 @@ package BinarySearch;
 
 import java.util.Scanner;
 
-/*
+/**
 1. Find the minimum element in the rotated array by applying binary search iteratively
 2. Once the minimum element is found, apply binary search in two windows i.e., 0 -> minIndex-1 and minIndex -> arr.length-1
    as the element would be in either of the windows as the elements are sorted and therefore the array can be divided in to
    2 parts using the minIndex
- */
+ **/
 public class SearchInSortedRotatedArray {
 
     public static void main(String[] args) {

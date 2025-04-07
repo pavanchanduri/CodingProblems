@@ -1,9 +1,9 @@
 package Arrays;
 
-/*
+/**
 1. Swap the columns i.e., last with first and so on
 2. Swap the rows i.e., bottom with top and so on
- */
+ **/
 public class MatrixRotation180Degrees {
     public static void main(String[] args) {
         int[][] arr = {

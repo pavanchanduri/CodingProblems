@@ -12,6 +12,11 @@ public class Fibonacci {
         System.out.println(fibonacciBottomUp(n));
     }
 
+    /**
+     * Recursive approach to calculate fibonacci number
+     * @param n - Number for which fibonacci is to be calculated
+     * @return - Fibonacci number for the inputted integer
+     */
     private static int fibonacciRecursive(int n) {
 
         if(n==1 || n==2) {
@@ -22,6 +27,12 @@ public class Fibonacci {
         }
     }
 
+    /**
+     * Memoization technique
+     * Store intermediate results in an array and return the result in the memo array
+     * @param n - Number for which fibonacci is to be calculated
+     * @return - Fibonacci number for the inputted integer
+     */
     private static int fibonacciMemoization(int n) {
 
         if(memo[n] != 0) return memo[n];
@@ -34,6 +45,11 @@ public class Fibonacci {
         return memo[n];
     }
 
+    /**
+     * Bottom up technique in Dynamic Programming where you store the results in an array
+     * @param n - Number for which fibonacci is to be calculated
+     * @return - Fibonacci number for the inputted integer
+     */
     private static int fibonacciBottomUp(int n) {
 
         if(n == 1 || n == 2) {

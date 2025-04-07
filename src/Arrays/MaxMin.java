@@ -1,5 +1,14 @@
 package Arrays;
 
+/**
+ * 1. For minimum element, as we iterate through the array, if the element is less than the min element,
+ *    mark secondMin as min and min as the current element and if the current element is less than secondMin,
+ *    mark the current element as the secondMin
+ * <p>
+ * 2. For maximum element, as we iterate through the array, if the element is more than the max element,
+ *    mark secondMax as max and max as the current element and if the current element is more than secondMax,
+ *    mark the current element as the secondMax
+ */
 public class MaxMin {
 
     public static void main(String[] args) {

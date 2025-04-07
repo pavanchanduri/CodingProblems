@@ -2,11 +2,11 @@ package BinarySearch;
 
 import java.util.Scanner;
 
-/*
-Idea here is to start with searching with the last element in the first row
-Decrement the column pointer if the target element is less than the last element in row 1
-Increment the row pointer and do the same operation as above if the target element is more than the last element in row1
-*/
+/**
+1. Idea here is to start with searching with the last element in the first row
+2. Decrement the column pointer if the target element is less than the last element in row 1
+3. Increment the row pointer and do the same operation as above if the target element is more than the last element in row1
+**/
 public class BinarySearchInMatrix {
     public static void main(String[] args) {
         int[][] arr = {

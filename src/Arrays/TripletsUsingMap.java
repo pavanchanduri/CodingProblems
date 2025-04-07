@@ -2,11 +2,11 @@ package Arrays;
 
 import java.util.*;
 
-/*
+/**
 1. Find out all the possible pairs along with their sum and store it in a map
 2. Iterate over the map and find the pairs that match the remaining sum i.e., target-arr[i]
 3. Validate and store the indexes that are not matching i.e., if (p[0] != i && p[1] != i)
- */
+ **/
 public class TripletsUsingMap {
 
     public static void main(String[] args) {

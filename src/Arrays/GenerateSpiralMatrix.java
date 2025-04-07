@@ -2,13 +2,13 @@ package Arrays;
 
 import java.util.Scanner;
 
-/*
-1. Assign the first row and increment rMin
-2. Assign the last column and decrement cMax
-3. Assign the last row and decrement rMax
-4. Assign the first column and increment cMin
-5. Repeat the above steps till all elements in the Matrix are added i.e., count equals M*N
- */
+/**
+* 1. Assign the first row and increment rMin
+* 2. Assign the last column and decrement cMax
+* 3. Assign the last row and decrement rMax
+* 4. Assign the first column and increment cMin
+* 5. Repeat the above steps till all elements in the Matrix are added i.e., count equals M*N
+ **/
 public class GenerateSpiralMatrix {
 
     public static void main(String[] args) {

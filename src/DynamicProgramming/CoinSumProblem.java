@@ -3,10 +3,22 @@ package DynamicProgramming;
 import java.util.Scanner;
 
 //Link - https://youtu.be/NNcN5X1wsaw?si=z8-ZR5ZZ9UTVX51B
+/**
+Using Dynamic Programming tabulation approach
+In each iteration, we start with the least denomination coin and then as we progress in the loop,
+we compute that coin value + minimum coins [sum-coinValue] i.e., for a sum of 11, we iteratively compute
+minimum of minCoins[11] and 1+minCoins[10] as we pick coin value 1 and so on till we use all the coins
+
+----------------------------------------------------------------------------------------
+| amount    | [0] | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] | [9] | [10] | [11] |
+---------------------------------------------------------------------------------------
+| Min Coins | 0  |  1  |  2  |  3  |  4  |  1  |  1  |  2  |  3  |  1  |  2   |  3   |
+--------------------------------------------------------------------------------------
+ **/
 public class CoinSumProblem {
 
     public static void main(String[] args) {
-        int[] coins = {2,5,6,9};
+        int[] coins = {1,5,6,9};
         int sum = new Scanner(System.in).nextInt();
         int[] minCoins = new int[sum+1];
 

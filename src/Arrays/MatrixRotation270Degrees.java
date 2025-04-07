@@ -1,9 +1,9 @@
 package Arrays;
 
-/*
+/**
 1. Transpose the matrix
 2. Swap the rows
- */
+ **/
 public class MatrixRotation270Degrees {
     public static void main(String[] args) {
         int[][] arr = {

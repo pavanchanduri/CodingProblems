@@ -1,5 +1,11 @@
 package MiscProblems;
 
+/*
+1. Take two pointer approach and iterative over the array from both sides
+2. If any sum becomes zero or negative, make the sum equivalent to the nums[i] so that the new sum gets computed
+   from the next element onwards.
+3. Pick the maximum sum among existing sum and max of leftSum and rightSum
+ */
 public class MaxSumSubArray {
 
     public static void main(String[] args) {
