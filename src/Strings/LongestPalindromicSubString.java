@@ -2,6 +2,12 @@ package Strings;
 
 import java.util.Scanner;
 
+/**
+ 1. Start with the second character and decrement low and increment high
+ 2. Keep iterating until low becomes -1 or high reaches end of the string
+ 3. Store the palindromes at each and every instance and store in LPS
+ 4. Repeat the above steps considering even length i.e., low = i=1 and high = i
+ */
 public class LongestPalindromicSubString {
 
     public static void main(String[] args) {
