@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Collections;
 
 /**
-1. Deals with string where frequencies of all characters are same
-2. You can have at most one character with a frequency 1 more than the rest which can be removed
-3. Also, you can have one character with 1 as the frequency which can be removed
+ 1. Deals with string where frequencies of all characters are same
+ 2. You can have at most one character with a frequency 1 more than the rest which can be removed
+ 3. Also, you can have one character with 1 as the frequency which can be removed
  */
 public class SherlockAndValidString {
 
@@ -35,10 +35,10 @@ public class SherlockAndValidString {
             System.exit(0);
         }
 
-        int first = list.getFirst();
+        int first = list.get(0);
         int second = list.get(1);
         int secondLast = list.get(list.size()-2);
-        int last = list.getLast();
+        int last = list.get(list.size()-1);
 
         if(first == last) {
             System.out.println("True");
