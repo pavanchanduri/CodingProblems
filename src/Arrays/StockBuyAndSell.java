@@ -1,4 +1,4 @@
-package MiscProblems;
+package Arrays;
 
 /**
 1. Set the initial buy price as prices[0]

@@ -1,4 +1,4 @@
-package MiscProblems;
+package Arrays;
 
 import java.util.Scanner;
 

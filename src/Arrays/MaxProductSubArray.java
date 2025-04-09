@@ -1,4 +1,4 @@
-package MiscProblems;
+package Arrays;
 
 /**
 1. Take two pointer approach and iterative over the array from both sides
