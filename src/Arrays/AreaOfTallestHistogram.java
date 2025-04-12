@@ -3,6 +3,13 @@ package Arrays;
 import java.util.Arrays;
 import java.util.Stack;
 
+
+/** Leetcode - https://leetcode.com/problems/largest-rectangle-in-histogram/
+ 1. For each and every element find the next max element and previous max element.
+ 2. The difference of the indices would give the width of the rectangle
+ 3. Multiply the width with height of the bar to get the area
+ 4. Keep a track of maxArea and compare with area to update it.
+ */
 public class AreaOfTallestHistogram {
 
     public static void main(String[] args) {
@@ -11,7 +18,7 @@ public class AreaOfTallestHistogram {
     }
 
     public static int largestRectangleArea(int[] heights) {
-        int maxArea = 0, area = 0;
+        int maxArea = 0, area;
 
         if(heights.length==1) {
             return heights[0];
