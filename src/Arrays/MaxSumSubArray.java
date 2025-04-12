@@ -18,11 +18,11 @@ public class MaxSumSubArray {
             return nums[0];
         }
 
-        int leftSum = nums[0];
-        int rightSum = nums[n-1];
-        int maxSum = nums[0];
+        int leftSum = Integer.MIN_VALUE;
+        int rightSum = Integer.MIN_VALUE;
+        int maxSum = Integer.MIN_VALUE;
 
-        for(int i=1;i<n;i++) {
+        for(int i=0;i<n;i++) {
 
             if(leftSum <= 0) {
                 leftSum = nums[i];
