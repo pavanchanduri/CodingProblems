@@ -1,9 +1,6 @@
 package ArrayProblems;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.util.*;
 
 /**
  1. Iterate through the array and if target-arr[i] is found in the map,

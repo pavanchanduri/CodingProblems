@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class NextPermutation {
     public static void main(String[] args) {
-        int[] nums = {2,3,1};
+        int[] nums = {1,2,3,5,4};
         nextPermutation(nums);
         System.out.println(Arrays.toString(nums));
     }
