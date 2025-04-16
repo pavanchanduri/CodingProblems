@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Problem - https://www.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1
+ * Problem - <a href="https://www.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1">...</a>
  * Idea is to sort the array and then find the maximum minimum element difference in m sized window
  */
 public class ChocolateDistribution {
