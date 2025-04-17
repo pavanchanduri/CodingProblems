@@ -20,20 +20,14 @@ public class MergeSortedArraysWithoutExtraSpace {
 
         while(i>=0&&j>=0) {
             if(arr1[i]>=arr2[j]) {
-                arr1[index] = arr1[i];
-                index--;
-                i--;
+                arr1[index--] = arr1[i--];
             } else {
-                arr1[index] = arr2[j];
-                index--;
-                j--;
+                arr1[index--] = arr2[j--];
             }
         }
 
         while(j>=0) {
-            arr1[index] = arr2[j];
-            index--;
-            j--;
+            arr1[index--] = arr2[j--];
         }
 
         for(int num: arr1) {
