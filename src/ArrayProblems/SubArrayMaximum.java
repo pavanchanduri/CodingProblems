@@ -1,5 +1,7 @@
 package ArrayProblems;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class SubArrayMaximum {
@@ -11,7 +13,7 @@ public class SubArrayMaximum {
         }
     }
 
-    public static List<Integer> findSubarrayMaximum(int[] nums, int k) {
+    public static List<Integer> findSubarrayMaximum(int @NotNull [] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Deque<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < nums.length; i++) {
