@@ -1,39 +1,32 @@
 package ArrayProblems;
 
-/**
- Run a loop until k-1 and make the previous minElement the max element i.e., MAX_VALUE
- This way the next element would be the minimum element which would be returned
- */
+import java.util.PriorityQueue;
+
 public class FindKLargestElement {
-
     public static void main(String[] args) {
-
-        int[] arr = {10,-2,-5, 1,5,7,9,-6,13};
+        int[] arr = {10, -2, -5, 1, 5, 7, 9, -6, 13};
         int k = 4;
-        int maxElement = Integer.MIN_VALUE;
 
-        for(int i=0;i< k;i++) {
-            maxElement = findLargest(arr);
-        }
-
-        System.out.println(maxElement);
+        // Find the k-th largest element
+        int kthLargest = findKthLargest(arr, k);
+        System.out.println(kthLargest);
     }
 
-    private static int findLargest(int[] arr) {
-        if(arr.length == 1) {
-            return arr[0];
-        }
+    private static int findKthLargest(int[] arr, int k) {
+        // Min-heap to store the k largest elements
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
-        int max = Integer.MIN_VALUE;
-        int maxIndex = -1;
+        // Iterate through all elements
+        for (int num : arr) {
+            minHeap.add(num); // Add the current element to the heap
 
-        for(int i=0;i< arr.length;i++) {
-            if(arr[i] > max) {
-                max = arr[i];
-                maxIndex = i;
+            // If the heap size exceeds k, remove the smallest element
+            if (minHeap.size() > k) {
+                minHeap.poll();
             }
         }
-        arr[maxIndex] = Integer.MIN_VALUE;
-        return max;
+
+        // The root of the heap is the k-th largest element
+        return minHeap.peek();
     }
 }
