@@ -2,17 +2,26 @@ package ArrayProblems;
 
 public class CyclicRotationOfArray {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6,7,8,9};
-        int k=3;
-        for(int j=0;j<k;j++) {
-            int temp = arr[arr.length-1];
-            for(int i=arr.length-1;i>0;i--){
-                arr[i] = arr[i-1];
-            }
-            arr[0] = temp;
-        }
-        for(int i:arr) {
-            System.out.print(i+" ");
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int k = 3;
+
+        // Optimizing the rotation
+        k = k % arr.length; // Handle cases where k > n
+        reverse(arr, 0, arr.length - k - 1);
+        reverse(arr, arr.length - k, arr.length - 1);
+        reverse(arr, 0, arr.length - 1);
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    // Helper method to reverse a portion of the array
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
     }
 }
