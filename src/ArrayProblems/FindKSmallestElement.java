@@ -1,5 +1,8 @@
 package ArrayProblems;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  Run a loop until k-1 and make the previous minElement the max element i.e., MAX_VALUE
  This way the next element would be the minimum element which would be returned
@@ -12,28 +15,37 @@ public class FindKSmallestElement {
         int k = 4;
         int minElement = Integer.MAX_VALUE;
 
-        for(int i=0;i< k;i++) {
-            minElement = findSmallest(arr);
-        }
-
-        System.out.println(minElement);
+        // Find the k-th largest element
+        int kthSmallest = findKthSmallest(arr, k);
+        System.out.println(kthSmallest);
     }
 
-    private static int findSmallest(int[] arr) {
-        if(arr.length == 1) {
-            return arr[0];
-        }
+    private static int findKthSmallest(int[] arr, int k) {
+        // Min-heap to store the k smallest elements through a custom comparator
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(new CustomComparator());
 
-        int min = Integer.MAX_VALUE;
-        int minIndex = -1;
+        // Iterate through all elements
+        for (int num : arr) {
+            minHeap.add(num); // Add the current element to the heap
 
-        for(int i=0;i< arr.length;i++) {
-            if(arr[i] < min) {
-                min = arr[i];
-                minIndex = i;
+            // If the heap size exceeds k, remove the smallest element
+            if (minHeap.size() > k) {
+                minHeap.poll();
             }
         }
-        arr[minIndex] = Integer.MAX_VALUE;
-        return min;
+
+        // The root of the heap is the k-th largest element
+        return minHeap.peek();
+    }
+
+    static class CustomComparator implements Comparator<Integer> {
+
+        @Override
+        public int compare(Integer number1, Integer number2) {
+            int value =  number1.compareTo(number2);
+
+            // elements are sorted in reverse order
+            return Integer.compare(0, value);
+        }
     }
 }
