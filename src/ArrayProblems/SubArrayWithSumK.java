@@ -7,7 +7,7 @@ public class SubArrayWithSumK {
 
     public static void main(String[] args) {
 
-        int[] arr = {1,2,3};
+        int[] arr = {1,3,0,5,-2};
         int k = 3, count = 0;
         Map<Integer,Integer> map = new HashMap<>();
 
