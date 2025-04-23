@@ -14,19 +14,22 @@ public class SquareRoot {
             throw new IllegalArgumentException("Cannot calculate square root of a negative number.");
         }
 
+        if(number == 0) return 0;
+
+        if(number == 1) return 1;
+
         int start = 0, end = number, result = 0;
 
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = start + (end-start) / 2;
 
             // Check if mid is a valid square root
-            if (mid * mid == number) {
+            if (mid == number/mid) {
                 return mid;
             }
 
             // If mid*mid is less than the number, move to the right half
-            if (mid * mid < number) {
-                result = mid; // Update result to the closest lower value
+            if (mid < number/mid) {
                 start = mid + 1;
             } else {
                 // If mid*mid is greater than the number, move to the left half
@@ -34,6 +37,6 @@ public class SquareRoot {
             }
         }
 
-        return result; // Return the floor value of the square root
+        return end; // Return the floor value of the square root
     }
 }
