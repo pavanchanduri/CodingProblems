@@ -1,4 +1,4 @@
-package ArrayProblems;
+package Matrix;
 
 /**
 1. Transpose the matrix

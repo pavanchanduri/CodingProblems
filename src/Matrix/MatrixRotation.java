@@ -1,4 +1,4 @@
-package ArrayProblems;
+package Matrix;
 
 /**
  90 degrees rotation -> Idea is to first transpose the matrix followed by swapping of the columns

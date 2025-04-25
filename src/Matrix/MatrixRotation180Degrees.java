@@ -1,4 +1,4 @@
-package ArrayProblems;
+package Matrix;
 
 /**
 1. Swap the columns i.e., last with first and so on
