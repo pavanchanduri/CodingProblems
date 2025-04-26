@@ -1,4 +1,4 @@
-package Recursion;
+package Strings;
 
 /**
  1. Fix an index and keep recursively calling permutations function in the loop

@@ -23,7 +23,6 @@ public class KthSmallestIn2DMatrix {
         for(int i=0;i<mat.length;i++) {
             for(int j=0;j<mat[i].length;j++) {
                 minHeap.add(mat[i][j]); // Add the current element to the heap
-
                 // If the heap size exceeds k, remove the smallest element
                 if (minHeap.size() > k) {
                     minHeap.poll();
