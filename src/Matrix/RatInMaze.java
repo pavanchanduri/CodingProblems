@@ -6,9 +6,9 @@ import java.util.List;
 public class RatInMaze {
 
     public static void main(String[] args) {
-        int[][] maze = {{1,0,0,0},
+        int[][] maze = {{1,1,1,1},
                         {1,1,0,1},
-                        {1,1,0,0},
+                        {1,1,1,1},
                         {0,1,1,1}};
         List<String> result = new ArrayList<>();
         ratInMaze(maze, 0, 0, "", result);
@@ -19,7 +19,7 @@ public class RatInMaze {
         int n = mat.length;
 
         //base cases -1 is when the cell has been visited
-        if(row < 0 || row >= n || col < 0 || col >= n || mat[row][col] == 0 || mat[row][col] == -1) {
+        if(row < 0 || row == n || col < 0 || col == n || mat[row][col] == 0 || mat[row][col] == -1) {
             return ;
         }
 

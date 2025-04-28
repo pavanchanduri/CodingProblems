@@ -1,4 +1,4 @@
-package ArrayProblems;
+package Matrix;
 
 import java.util.ArrayList;
 import java.util.Arrays;
