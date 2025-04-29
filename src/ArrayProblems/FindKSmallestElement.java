@@ -13,7 +13,6 @@ public class FindKSmallestElement {
 
         int[] arr = {10,-2,-5, 1,5,7,9,-6,13};
         int k = 1;
-        int minElement = Integer.MAX_VALUE;
 
         // Find the k-th largest element
         int kthSmallest = findKthSmallest(arr, k);
