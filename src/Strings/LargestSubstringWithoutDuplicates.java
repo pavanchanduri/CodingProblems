@@ -15,7 +15,7 @@ public class LargestSubstringWithoutDuplicates {
             if(list.contains(ch)){
                 int index = list.indexOf(ch);
                 for(int j = 0; j <= index; j++){
-                    list.remove(list.getFirst());
+                    list.remove(list.get(0));
                 }
             }
             list.add(ch);

@@ -1,7 +1,5 @@
 package ArrayProblems;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class RemoveDuplicatesInSortedArray {
@@ -14,7 +12,7 @@ public class RemoveDuplicatesInSortedArray {
         System.out.println("Unique elements: " + Arrays.toString(Arrays.copyOf(nums, length)));
     }
 
-    public static int removeDuplicates(int @NotNull [] nums) {
+    public static int removeDuplicates(int [] nums) {
         if (nums.length == 0) return 0;
 
         int uniqueIndex = 0; // Points to the position of the last unique element

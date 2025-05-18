@@ -52,8 +52,8 @@ public class NMeetings {
         MeetingComparator mc = new MeetingComparator();
         meet.sort(mc); //Sort the meetings as per their end time using Meeting Comparator
         List<Integer> result = new ArrayList<>();
-        result.add(meet.getFirst().start);
-        int limit = meet.getFirst().end;
+        result.add(meet.get(0).start);
+        int limit = meet.get(0).end;
         for(int i=1; i<start.length; i++) {
             //compare last meeting endtime with next meeting start time
             if(meet.get(i).start>limit) {

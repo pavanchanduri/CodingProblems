@@ -32,11 +32,11 @@ public class MaxLengthSubArrayWithSum0 {
 
         for(int i=0;i<prefixSum.length;i++) {
             if(map.containsKey(prefixSum[i])) {
-                map.put(prefixSum[i], Arrays.asList(map.get(prefixSum[i]).getFirst(), i));
+                map.put(prefixSum[i], Arrays.asList(map.get(prefixSum[i]).get(0), i));
             } else {
                 map.put(prefixSum[i], Arrays.asList(i,i));
             }
-            length = map.get(prefixSum[i]).getLast()-map.get(prefixSum[i]).getFirst();
+            length = map.get(prefixSum[i]).get(map.get(prefixSum[i]).size()-1)-map.get(prefixSum[i]).get(0);
             maxLength = Math.max(length, maxLength);
         }
         return maxLength;
