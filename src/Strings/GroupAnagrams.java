@@ -50,12 +50,10 @@ public class GroupAnagrams {
             freq[c - 'a']++;
         }
 
-        char ch = 'a';
         StringBuilder frequencyString = new StringBuilder();
         for (int i: freq) {
-            frequencyString.append(ch);
+            frequencyString.append((char)i+'a');
             frequencyString.append(i);
-            ch++;
         }
         return frequencyString.toString();
     }

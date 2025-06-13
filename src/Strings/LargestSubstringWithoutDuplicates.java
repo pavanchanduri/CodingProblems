@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LargestSubstringWithoutDuplicates {
     public static void main(String[] args) {
-        String s = "pwwkew";
+        String s = "pwwkewepweaboi";
 
         int maxLength = 0;
         int length;

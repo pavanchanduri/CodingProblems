@@ -29,8 +29,8 @@ public class Anagrams {
         //bucket array to store the counts corresponding to each character in the string
         int[] counts = new int[26];
 
-        for(int i=0;i<str1.length();i++) {
-            counts[str1.charAt(i)-'a']++;
+        for(char c: str1.toCharArray()) {
+            counts[c-'a']++;
         }
         for(int i=0;i<str2.length();i++) {
             counts[str2.charAt(i)-'a']--;
