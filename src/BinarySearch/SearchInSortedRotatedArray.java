@@ -12,7 +12,9 @@ public class SearchInSortedRotatedArray {
 
     public static void main(String[] args) {
         int[] arr = {5,6,7,8,9,10,11,12,13,1,2,3,4};
-        int target = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int target = scanner.nextInt();
+        scanner.close();
         int minIndex = findMin(arr);
 
         int result = binarySearch(arr, minIndex, arr.length-1, target);

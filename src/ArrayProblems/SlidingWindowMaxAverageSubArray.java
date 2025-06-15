@@ -17,7 +17,9 @@ public class SlidingWindowMaxAverageSubArray {
         int sum = 0;
         int maxSum;
         int startIndex = 0;
-        int k = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int k = scanner.nextInt();
+        scanner.close();
         for (int i = 0; i < k; i++)
             sum += arr[i];
 

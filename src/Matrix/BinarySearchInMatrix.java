@@ -15,7 +15,8 @@ public class BinarySearchInMatrix {
                 {9,10,11,12},
                 {13,14,15,16}};
 
-        int target = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int target = scanner.nextInt();
         int i=0,j=arr[0].length-1;
 
         while (i<arr.length && j>=0){
@@ -27,7 +28,8 @@ public class BinarySearchInMatrix {
             } else {
                 i++;
             }
-        }
         System.out.println("Target element "+target+" is not found");
+        scanner.close();
     }
+}
 }

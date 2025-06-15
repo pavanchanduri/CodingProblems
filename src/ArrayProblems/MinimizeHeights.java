@@ -12,7 +12,8 @@ public class MinimizeHeights {
 
     public static void main(String[] args) {
         int[] arr = {3, 9, 12, 16, 20};
-        int k = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int k = scanner.nextInt();
         Arrays.sort(arr);
         int n = arr.length;
         int minimum = arr[0];
@@ -24,7 +25,8 @@ public class MinimizeHeights {
             maximum = Math.max(arr[n-1]-k, arr[i-1]+k);
             if(minimum<0) continue;
             result = Math.min(result, maximum - minimum);
-        }
         System.out.println(result);
+        scanner.close();
+        }
     }
 }

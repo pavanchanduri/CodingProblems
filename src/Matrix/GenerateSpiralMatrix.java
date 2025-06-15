@@ -13,8 +13,10 @@ public class GenerateSpiralMatrix {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
+        int n;
+        try (Scanner scanner = new Scanner(System.in)) {
+            n = scanner.nextInt();
+        }
 
         int[][] arr = new int[n][n];
         int rMin = 0, rMax = n-1, cMin = 0, cMax = n-1;

@@ -13,7 +13,9 @@ public class FactorialsOfLargeNumbers {
 
         BigInteger factorial = BigInteger.valueOf(1);
         ArrayList<Integer> result = new ArrayList<>();
-        int n = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.close();
         for(int i=1;i<=n;i++) {
             factorial=factorial.multiply(BigInteger.valueOf(i));
         }

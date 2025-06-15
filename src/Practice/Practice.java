@@ -16,7 +16,6 @@ public class Practice {
 
     private static List<List<String>> groupAnagrams(String[] strList) {
 
-        List<List<String>> result = new ArrayList<>();
         Map<String, List<String>> freqStringMap = new HashMap<>();
         for(int i=0;i<strList.length;i++) {
             String freqString = generateFrequencyString(strList[i]);

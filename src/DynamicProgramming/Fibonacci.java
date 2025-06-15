@@ -6,10 +6,18 @@ public class Fibonacci {
     static int[] memo;
 
     public static void main(String[] args) {
-        int n = new Scanner(System.in).nextInt();
+        int n;
+        try (Scanner scanner = new Scanner(System.in)) {
+            n = scanner.nextInt();
+        }
         memo = new int[n+1];
 
         System.out.println(fibonacciBottomUp(n));
+        // Example usage of fibonacciRecursive to avoid unused method warning
+        System.out.println("Recursive: " + fibonacciRecursive(n));
+        // Example usage of fibonacciMemoization to avoid unused method warning
+        memo = new int[n+1];
+        System.out.println("Memoization: " + fibonacciMemoization(n));
     }
 
     /**

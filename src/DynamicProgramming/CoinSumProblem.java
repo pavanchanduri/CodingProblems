@@ -19,7 +19,8 @@ public class CoinSumProblem {
 
     public static void main(String[] args) {
         int[] coins = {1,5,6,9};
-        int sum = new Scanner(System.in).nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int sum = scanner.nextInt();
         int[] minCoins = new int[sum+1];
 
         if(sum <= 0) {
@@ -39,7 +40,8 @@ public class CoinSumProblem {
         if(minCoins[sum] == Integer.MAX_VALUE) {
             System.out.println("-1");
             System.exit(0);
-        }
         System.out.println(minCoins[sum]);
+        scanner.close();
     }
+}
 }

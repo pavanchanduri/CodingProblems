@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class SquareRoot {
     public static void main(String[] args) {
-        int number = new Scanner(System.in).nextInt();
-        int sqrt = findSquareRoot(number);
-        System.out.println("Square root of " + number + " is: " + sqrt);
+        try (Scanner scanner = new Scanner(System.in)) {
+            int number = scanner.nextInt();
+            int sqrt = findSquareRoot(number);
+            System.out.println("Square root of " + number + " is: " + sqrt);
+        }
     }
 
     public static int findSquareRoot(int number) {
@@ -18,7 +20,7 @@ public class SquareRoot {
 
         if(number == 1) return 1;
 
-        int start = 0, end = number, result = 0;
+        int start = 0, end = number;
 
         while (start <= end) {
             int mid = start + (end-start) / 2;
