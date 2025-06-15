@@ -41,7 +41,7 @@ public class PalindromePartitioning {
         int n = ans.size();
         System.out.println("The Palindromic partitions are :-");
         System.out.print(" [ ");
-        for (int i = 0; i < ans.size(); i++) {
+        for (int i = 0; i < n; i++) {
             System.out.print("[ ");
             for (int j = 0; j < ans.get(i).size(); j++) {
                 System.out.print(ans.get(i).get(j) + " ");

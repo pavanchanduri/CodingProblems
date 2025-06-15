@@ -12,7 +12,8 @@ public class FirstUniqueCharacter {
 
     public static void main(String[] args) {
 
-        String str = new Scanner(System.in).nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
         int index = -1;
         Map<Character, Integer> charFreqMap = new HashMap<>();
 
@@ -25,7 +26,8 @@ public class FirstUniqueCharacter {
                 index = i;
                 break;
             }
-        }
         System.out.println(index);
+        scanner.close();
     }
+}
 }

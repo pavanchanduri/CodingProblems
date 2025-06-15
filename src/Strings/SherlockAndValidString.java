@@ -17,7 +17,9 @@ public class SherlockAndValidString {
 
     public static void main(String[] args) {
 
-        String str = new Scanner(System.in).nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        scanner.close();
         HashMap<Character, Integer> charFreqMap = new HashMap<>();
         for (int i = 0; i < str.length(); i++) {
             char letter = str.charAt(i);

@@ -14,7 +14,9 @@ public class SuperReducedString {
 
     public static void main(String[] args) {
 
-        String str = new Scanner(System.in).nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        scanner.close();
 
         Stack<Character> stack = new Stack<>();
         for (Character c : str.toCharArray()) {

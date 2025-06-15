@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class LongestPalindromicSubString {
 
     public static void main(String[] args) {
-        String str = new Scanner(System.in).nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
         String longestPalindromeSubString = "";
 
         if(str.length()<=1) {
@@ -60,7 +61,8 @@ public class LongestPalindromicSubString {
             if(palindrome.length()>= longestPalindromeSubString.length()) {
                 longestPalindromeSubString = palindrome;
             }
-        }
         System.out.println(longestPalindromeSubString);
+        scanner.close();
     }
+}
 }

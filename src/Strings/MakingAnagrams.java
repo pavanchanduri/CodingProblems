@@ -11,8 +11,10 @@ import java.util.Scanner;
 public class MakingAnagrams {
 
     public static void main(String[] args) {
-        String str1 = new Scanner(System.in).nextLine();
-        String str2 = new Scanner(System.in).nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String str1 = scanner.nextLine();
+        String str2 = scanner.nextLine();
+        scanner.close();
 
         //Convert strings to lowercase, trim trailing and leading spaces and remove all spaces in between
         str1 = str1.toLowerCase().trim().replaceAll(" ", "");

@@ -1,7 +1,5 @@
 package Strings;
 
-import java.util.Scanner;
-
 public class TwoDistinctCharacters {
 
     public static void main(String[] args) {
