@@ -67,5 +67,4 @@ public class AreaOfTallestHistogram {
         }
         return left;
     }
-
 }

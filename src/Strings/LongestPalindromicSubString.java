@@ -61,8 +61,8 @@ public class LongestPalindromicSubString {
             if(palindrome.length()>= longestPalindromeSubString.length()) {
                 longestPalindromeSubString = palindrome;
             }
+            scanner.close();
+        }
         System.out.println(longestPalindromeSubString);
-        scanner.close();
     }
-}
 }
