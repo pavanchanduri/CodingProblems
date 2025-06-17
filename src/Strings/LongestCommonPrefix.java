@@ -12,6 +12,23 @@ public class LongestCommonPrefix {
     public static void main(String[] args) {
 
         String[] str = {"flower","flow","flight"};
+        longestCommonPrefix(str);
+    }
+
+    /**
+     * This method finds the longest common prefix among an array of strings.
+     * It sorts the array and compares the first and last strings to find the common prefix.
+     *
+     * The algorithm works as follows:
+     * 1. Sort the array of strings.
+     * 2. Convert the first and last strings to character arrays.
+     * 3. Compare characters at each index until a mismatch is found.
+     * 4. Append matching characters to a StringBuilder.
+     * 5. Print the resulting common prefix.
+     *
+     * @param str An array of strings
+     */
+    private static void longestCommonPrefix(String[] str) {
         StringBuilder result = new StringBuilder();
         Arrays.sort(str);
 

@@ -16,6 +16,7 @@ public class CompressString {
      * with the character followed by the number of occurrences.
      * For example, "aaabbccaaaddddefg" becomes "3a2b2c3a4d1e1f1g". 
      * It uses a stack to keep track of the current character sequence.
+     * 
      * The algorithm works as follows:
      * 1. Iterate through each character in the string.
      * 2. If the stack is empty or the current character matches the top of the stack,
@@ -26,6 +27,7 @@ public class CompressString {
      * 4. Push the current character onto the stack.
      * 5. After processing all characters, if the stack is not empty,
      *    pop the remaining character from the stack and append its count to the result.
+     * 
      * @param str the input string to compress
      *           (assumed to be non-empty and contain only lowercase letters)
      * @return the compressed string
@@ -50,9 +52,6 @@ public class CompressString {
                 stack.push(ch);
             }
         }
-        //After all the iterations if the stack is still not Empty
-        //Implies that there are identical characters in the stack
-        //Pop and append the size to the result
         if(!stack.isEmpty()) {
             int size = stack.size();
             result.append(size);

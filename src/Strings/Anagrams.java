@@ -2,12 +2,6 @@ package Strings;
 
 import java.util.Scanner;
 
-/**
-1. Create a bucket array of 26 characters
-2. Iterate through the first string and add frequency count character wise in to the array
-3. Iterate through the second string and subtract the frequency count character wise from the array
-4. Iterate through the array and if any count != 0, return false i.e., Strings are not anagrams
- */
 public class Anagrams {
 
     public static void main(String[] args) {
@@ -24,7 +18,16 @@ public class Anagrams {
      * typically using all the original letters exactly once.
      * For example, "listen" is an anagram of "silent".
      * This method ignores case and spaces, treating "Listen" and "Silent" as anagrams,
-     * as well as "A gentleman" and "Elegant"
+     * as well as "A gentleman" and "Elegant man"
+     * 
+     * The algorithm works as follows:
+     * 1. Convert both strings to lowercase and remove all spaces.
+     * 2. If the lengths of the two strings are not equal, they cannot be anagrams, so print "Not Anagrams" and exit.
+     * 3. Create a bucket array of size 26 (for each letter in the English alphabet).
+     * 4. Iterate through the first string and increment the count for each character in the bucket array.
+     * 5. Iterate through the second string and decrement the count for each character in the bucket array.
+     * 6. If all counts are zero, the strings are anagrams; otherwise, they are not.
+     * 
      * @param str1 The first string to compare.
      * @param str2 The second string to compare.
      */

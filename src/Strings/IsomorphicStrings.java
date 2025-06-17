@@ -23,6 +23,26 @@ public class IsomorphicStrings {
         System.out.println(isIsomorphic(str1, str2));
     }
 
+    /**
+     * This method checks if two strings are isomorphic.
+     * Two strings are isomorphic if the characters in one string can be replaced to get the
+     * other string, while preserving the order of characters.
+     * 
+     * The algorithm works as follows:
+     * 1. Initialize a HashMap to store character mappings.
+     * 2. Iterate through the characters of both strings simultaneously.
+     * 3. For each character in the first string, check if it is already mapped
+     *    to a character in the second string.
+     *    - If it is, verify that the mapping matches the current character in the second
+     *      string. If not, return false.
+     *    - If it is not mapped, check if the current character in the second string
+     *      is already mapped to another character in the first string. If it is, return false.
+     * 4. If all characters can be mapped correctly, return true.
+     * 
+     * @param s the first string
+     * @param t the second string
+     * @return true if the strings are isomorphic, false otherwise
+     */
     private static boolean isIsomorphic(String s, String t) {
         Map<Character, Character> hm = new HashMap<>();
         for(int i=0;i<s.length();i++) {

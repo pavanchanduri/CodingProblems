@@ -13,6 +13,25 @@ public class LongestPalindromicSubString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
+        scanner.close();
+        longestCommonPalindromicSubString(str);
+    }
+
+    /**
+     * This method finds the longest palindromic substring in a given string.
+     * It uses a two-pointer technique to expand around each character and check for palindromes.
+     * 
+     * The algorithm works as follows:
+     * 1. Initialize an empty string to store the longest palindrome found.
+     * 2. Iterate through each character in the string, treating it as the center of a potential palindrome.
+     * 3. For each character, expand outwards in both directions (left and right) to find palindromes.
+     * 4. If a palindrome is found that is longer than the previously recorded longest palindrome,
+     *    update the longest palindrome.
+     * 5. Print the longest palindromic substring found.
+     *
+     * @param str The input string
+     */
+    private static void longestCommonPalindromicSubString(String str) {
         String longestPalindromeSubString = "";
 
         if(str.length()<=1) {
@@ -61,7 +80,6 @@ public class LongestPalindromicSubString {
             if(palindrome.length()>= longestPalindromeSubString.length()) {
                 longestPalindromeSubString = palindrome;
             }
-            scanner.close();
         }
         System.out.println(longestPalindromeSubString);
     }

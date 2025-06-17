@@ -2,11 +2,6 @@ package Strings;
 
 import java.util.Stack;
 
-/**
- 1. '#' key corresponds to backspace and if # is encountered, remove the previous character
- 2. Push the characters in to a stack and as and when # is encountered, pop the element
- 3. After the stack is completely built, pop all the contents from the stack and build the result string
- */
 public class BackspaceStringCompare {
 
     public static void main(String[] args) {
@@ -21,6 +16,15 @@ public class BackspaceStringCompare {
      * It uses a stack to handle the characters, pushing them onto the stack when they are
      * encountered, and popping the last character when a backspace character is found.
      * After processing the entire string, it constructs a new string from the characters remaining in the stack.
+     * 
+     * The algorithm works as follows:
+     * 1. Initialize an empty stack to hold characters.
+     * 2. Iterate through each character in the input string.
+     *    - If the character is a backspace ('#'), pop the last character from the stack (if the stack is not empty).
+     *    - If the character is not a backspace, push it onto the stack.
+     * 3. After processing all characters, construct a new string from the characters in the stack.
+     * 4. Return the constructed string as a StringBuilder.
+     * 
      * @param str the input string to process
      *            which may contain backspace characters ('#')
      * @return a StringBuilder containing the processed string

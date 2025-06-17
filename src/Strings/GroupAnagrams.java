@@ -25,6 +25,7 @@ public class GroupAnagrams {
      * This method groups anagrams from a list of strings.
      * It generates a frequency string for each string and uses it as a key in a map
      * to group anagrams together.
+     * 
      * The algorithm works as follows:
      * 1. Initialize a map to hold frequency strings as keys and lists of anagrams
      *    as values.
@@ -65,6 +66,7 @@ public class GroupAnagrams {
      * For example, for the string "aabbcc", the frequency string would be "a2b2c2".
      * It counts the occurrences of each character in the string
      * and constructs the frequency string accordingly.
+     * 
      * The algorithm works as follows:
      * 1. Initialize an array to count the frequency of each character (assuming lowercase letters
      *    a-z).

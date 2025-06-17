@@ -12,6 +12,13 @@ public class FindDuplicates {
      * It uses a bucket array to count the frequency of each character.
      * If a character appears more than once, it is printed along with its frequency.
      * 
+     * The algorithm works as follows:
+     * 1. Create a bucket array of size 256 (assuming ASCII characters).
+     * 2. Iterate through the input string and increment the count for each character in the
+     *    bucket array.
+     * 3. Iterate through the bucket array and print characters that have a count greater than 1,
+     *    along with their frequency.
+     * 
      * @param str The input string in which to find duplicates.
      *     
      */
