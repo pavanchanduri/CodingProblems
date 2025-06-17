@@ -10,6 +10,21 @@ public class SecondFrequentString {
         System.out.println(secFrequent(arr, arr.length));
     }
 
+    /**
+     * Finds the second most frequent string in an array of strings.
+     * This method uses a HashMap to count the frequency of each string
+     * and then determines the second highest frequency.
+     * 
+     * The algorithm works as follows:
+     * 1. Create a HashMap to store the frequency of each string.
+     * 2. Iterate through the array and populate the HashMap.
+     * 3. Find the maximum and second maximum frequencies.
+     * 4. Return the string corresponding to the second maximum frequency.
+     *
+     * @param arr The array of strings.
+     * @param N The number of elements in the array.
+     * @return The second most frequent string, or an empty string if no such string exists.
+     */
     static String secFrequent(String[] arr, int N) {
         // your code here
         Map<String, Integer> hm = new HashMap<>();
