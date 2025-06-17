@@ -4,14 +4,30 @@ public class FindDuplicates {
 
     public static void main(String[] args) {
         String str = "bcbaabcedffffeeecdfghijklmnopqrstuvwxyz";
-        int[] count = new int[26];
-        for (int i = 0; i < str.length(); i++) {
-            count[str.charAt(i) - 'a']++;
+        findDuplicates(str);  
+    }
+
+    /**
+     * This method finds and prints the duplicate characters in a given string.
+     * It uses a bucket array to count the frequency of each character.
+     * If a character appears more than once, it is printed along with its frequency.
+     * 
+     * @param str The input string in which to find duplicates.
+     *     
+     */
+    public static void findDuplicates(String str) {
+        // Create a bucket array to store the frequency of each character
+        int[] frequency = new int[256]; // Assuming ASCII characters
+
+        // Count the frequency of each character in the string
+        for (char c : str.toCharArray()) {
+            frequency[c]++;
         }
 
-        for(int i=0;i<26;i++) {
-            if(count[i]>1) {
-                System.out.print((char)(i+'a')+" ");
+        // Print characters that appear more than once
+        for (int i = 0; i < frequency.length; i++) {
+            if (frequency[i] > 1) {
+                System.out.println((char) i + ": " + frequency[i]);
             }
         }
     }

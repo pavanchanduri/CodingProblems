@@ -14,20 +14,32 @@ public class FirstUniqueCharacter {
 
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        int index = -1;
-        Map<Character, Integer> charFreqMap = new HashMap<>();
+        scanner.close();
+        System.out.println(firstUniqueCharacter(str));
+    }
 
-        for (int i = 0; i < str.length(); i++) {
-            charFreqMap.put(str.charAt(i), charFreqMap.getOrDefault(str.charAt(i), 0) + 1);
+    /**
+     * Finds the index of the first unique character in a string.  
+     * This method uses a frequency map to count occurrences of each character,
+     * and then identifies the first character with a count of 1.
+     * @param str The input string to search for the first unique character.
+     * @return The index of the first unique character, or -1 if none exists.
+     */
+    public static int firstUniqueCharacter(String str) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Step 1: Create frequency map
+        for (char c : str.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
         }
 
+        // Step 2: Find the first unique character
         for (int i = 0; i < str.length(); i++) {
-            if (charFreqMap.get(str.charAt(i)) == 1) {
-                index = i;
-                break;
+            if (frequencyMap.get(str.charAt(i)) == 1) {
+                return i;
             }
-        System.out.println(index);
-        scanner.close();
+        }
+
+        return -1; // If no unique character found
     }
-}
 }

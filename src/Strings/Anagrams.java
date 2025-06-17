@@ -15,6 +15,20 @@ public class Anagrams {
         String str1 = scanner.nextLine();
         String str2 = scanner.nextLine();
         scanner.close();
+        checkAnagrams(str1, str2);
+    }
+
+    /**
+     * Checks if two strings are anagrams of each other.
+     * An anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+     * typically using all the original letters exactly once.
+     * For example, "listen" is an anagram of "silent".
+     * This method ignores case and spaces, treating "Listen" and "Silent" as anagrams,
+     * as well as "A gentleman" and "Elegant"
+     * @param str1 The first string to compare.
+     * @param str2 The second string to compare.
+     */
+    public static void checkAnagrams(String str1, String str2) {
 
         //Convert strings to lowercase, trim trailing and leading spaces and remove all spaces in between
         str1 = str1.toLowerCase().trim().replaceAll(" ", "");
