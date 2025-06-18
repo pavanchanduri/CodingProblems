@@ -6,7 +6,7 @@ public class BackspaceStringCompare {
 
     public static void main(String[] args) {
 
-        String str1 = "ab#cde#f##xy";
+        String str1 = "#ab#cde#f##xy";
         String str2 = "ab#cc#de#f##xyz#";
         System.out.println(solve(str1).compareTo(solve(str2)) == 0);
     }
@@ -20,6 +20,7 @@ public class BackspaceStringCompare {
      * The algorithm works as follows:
      * 1. Initialize an empty stack to hold characters.
      * 2. Iterate through each character in the input string.
+     *    - If the character is a backspace ('#') and the stack is empty, ignore it.
      *    - If the character is a backspace ('#'), pop the last character from the stack (if the stack is not empty).
      *    - If the character is not a backspace, push it onto the stack.
      * 3. After processing all characters, construct a new string from the characters in the stack.
@@ -33,7 +34,10 @@ public class BackspaceStringCompare {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
-            if (c == '#') {
+            if(c == '#' && stack.isEmpty()) {
+                continue; // Ignore backspace if stack is empty
+            }
+            if (c == '#' && !stack.isEmpty()) {
                 stack.pop();
             } else {
                 stack.push(c);

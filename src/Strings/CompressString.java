@@ -9,6 +9,7 @@ public class CompressString {
     public static void main(String[] args) {
         String str = "aaabbccaaaddddefg";
         System.out.println(compress(str));
+        System.out.println(compress2(str));
     }
 
     /**
@@ -58,6 +59,42 @@ public class CompressString {
             result.append(stack.pop());
         }
 
+        return result.toString();
+    }
+
+    /**
+     *
+     * The algorithm works as follows:
+     * 1. Initialize a count variable to 1.
+     * 2. Iterate through the string starting from the second character.
+     * 3. If the current character matches the previous one, increment the count.
+     * 4. If it does not match, append the count and the previous character to the result,
+     *    then reset the count to 1.
+     * 5. After the loop, append the last character and its count to the result.
+     *
+     * @param str the input string to compress
+     * @return the compressed string
+     */
+    // This is a more efficient version without using a stack
+    // It directly counts consecutive characters and builds the result string.
+    // This method is more straightforward and avoids the overhead of using a stack.
+    // It is also easier to understand and maintain.
+    // This method is more efficient than the previous one.
+    // It has a time complexity of O(n) and a space complexity of O(n).
+    // It is a good choice for compressing strings with many consecutive characters.
+    private static String compress2(String str) {
+        StringBuilder result = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                result.append(count).append(str.charAt(i - 1));
+                count = 1;
+            }
+        }
+        // Append the last character and its count
+        result.append(count).append(str.charAt(str.length() - 1));
         return result.toString();
     }
 }
