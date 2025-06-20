@@ -21,6 +21,15 @@ public class MajorityElement {
 
     }
 
+    /**
+     * The algorithm works as follows:
+     * 1. Create a frequency map to store the count of each element.
+     * 2. Iterate through the array and populate the frequency map.
+     * 3. Check if any element's count is greater than n/2, where n is the length of the array.
+     *
+     * @param nums The input array
+     * @return The majority element or -1 if no majority element exists
+     */
     private static int majorityElementUsingFrequencyMap(int[] nums) {
 
         Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -36,6 +45,16 @@ public class MajorityElement {
         return -1;
     }
 
+    /**
+     * The algorithm works as follows:
+     * 1. Initialize a candidate and a count.
+     * 2. Iterate through the array, updating the candidate and count based on the current element.
+     * 3. If the count reaches zero, update the candidate to the current element.
+     * 4. After the first pass, verify if the candidate is indeed the majority element by counting its occurrences.
+     *
+     * @param nums The input array
+     * @return The majority element or -1 if no majority element exists
+     */
     private static int majorityElementUsingCounter(int[] nums) {
 
         int candidate = nums[0];

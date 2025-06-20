@@ -11,25 +11,39 @@ public class FactorialsOfLargeNumbers {
 
     public static void main(String[] args) {
 
-        BigInteger factorial = BigInteger.valueOf(1);
-        ArrayList<Integer> result = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         scanner.close();
-        for(int i=1;i<=n;i++) {
-            factorial=factorial.multiply(BigInteger.valueOf(i));
+        factorial(n).forEach(System.out::print);
+    }
+
+    /**
+     * This method calculates the factorial of a number n and returns it as an ArrayList of integers.
+     * The digits of the factorial are stored in reverse order.
+     * 
+     * The algorithm works as follows:
+     * 1. Initialize a BigInteger to hold the factorial value, starting at 1
+     * 2. Loop from 2 to n, multiplying the BigInteger by each integer in that range
+     * 3. Convert the BigInteger to a string to extract its digits
+     * 4. Iterate through the string in reverse order, converting each character to an integer
+     *    and adding it to an ArrayList
+     * 5. Return the ArrayList containing the digits of the factorial in reverse order
+     *
+     * @param n The number for which the factorial is to be calculated
+     * @return An ArrayList containing the digits of the factorial in reverse order
+     */
+    private static ArrayList<Integer> factorial(int n) {
+        ArrayList<Integer> result = new ArrayList<>();
+        BigInteger fact = BigInteger.ONE;
+
+        for (int i = 2; i <= n; i++) {
+            fact = fact.multiply(BigInteger.valueOf(i));
         }
 
-        StringBuilder str = new StringBuilder();
-        while(factorial.compareTo(BigInteger.ZERO)!=0) { //equivalent to factorial>0
-            BigInteger rem = factorial.remainder(BigInteger.TEN); //equivalent to factorial%10
-            factorial = factorial.divide(BigInteger.TEN); //equivalent to factorial/10
-            str.insert(0, rem); //equivalent to str = rem+str
+        String factStr = fact.toString();
+        for (int i = factStr.length() - 1; i >= 0; i--) {
+            result.add(factStr.charAt(i) - '0');
         }
-
-        for(int i=0;i<str.length();i++) {
-            result.add(str.charAt(i)-'0');
-        }
-        System.out.println(result);
+        return result;
     }
 }

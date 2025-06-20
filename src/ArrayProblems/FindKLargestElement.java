@@ -12,6 +12,20 @@ public class FindKLargestElement {
         System.out.println(kthLargest);
     }
 
+    /**
+     * This method finds the k-th largest element in an array.
+     *
+     * The algorithm works as follows:
+     * 1. Create a min-heap to store the k largest elements.
+     * 2. Iterate through all elements in the array.
+     * 3. Add each element to the heap.
+     * 4. If the heap size exceeds k, remove the smallest element.
+     * 5. The root of the heap will be the k-th largest element.
+     *
+     * @param arr The input array
+     * @param k The k-th position to find
+     * @return The k-th largest element
+     */
     private static int findKthLargest(int[] arr, int k) {
         // Min-heap to store the k largest elements
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

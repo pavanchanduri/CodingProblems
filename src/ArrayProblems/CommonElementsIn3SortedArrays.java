@@ -1,6 +1,9 @@
 package ArrayProblems;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class CommonElementsIn3SortedArrays {
 
@@ -13,6 +16,22 @@ public class CommonElementsIn3SortedArrays {
         System.out.println(resultList);
     }
 
+    /**
+     * This method finds common elements in three sorted arrays.
+     * It uses a three-pointer technique to traverse through the arrays.
+     * 
+     * The algorithm works as follows:
+     * 1. Initialize three pointers for each of the three lists.
+     * 2. Compare the elements at these pointers.
+     * 3. If the elements are equal, add the element to the result list and
+     *    move all three pointers forward.
+     * 4. If the elements are not equal, move the pointer of the list with the smallest element forward.
+     *
+     * @param list1 First sorted list of integers
+     * @param list2 Second sorted list of integers
+     * @param list3 Third sorted list of integers
+     * @return A list containing common elements in all three lists
+     */
     public static List<Integer> commonElements(List<Integer> list1, List<Integer> list2,
                                                List<Integer> list3) {
         int i=0,j=0,k=0;
@@ -34,42 +53,5 @@ public class CommonElementsIn3SortedArrays {
             }
         }
         return resultList;
-    }
-
-    public List<Integer> commonElements_Old(List<Integer> arr1, List<Integer> arr2,
-                                        List<Integer> arr3) {
-        // Code Here
-        Set<Integer> temp = new LinkedHashSet<>();
-        Set<Integer> resultSet = new LinkedHashSet<>();
-
-        int i=0,j=0;
-
-        while(i<arr1.size() && j<arr2.size()) {
-            if(arr1.get(i)<arr2.get(j)) {
-                i++;
-            } else if(arr1.get(i)>arr2.get(j)) {
-                j++;
-            } else {
-                temp.add(arr1.get(i));
-                i++;
-                j++;
-            }
-        }
-        List<Integer> tempList = new ArrayList<>(temp);
-
-        i=0;j=0;
-
-        while(i<tempList.size() && j<arr3.size()) {
-            if(tempList.get(i)<arr3.get(j)) {
-                i++;
-            } else if(tempList.get(i)>arr3.get(j)) {
-                j++;
-            } else {
-                resultSet.add(tempList.get(i));
-                i++;
-                j++;
-            }
-        }
-        return new ArrayList<>(resultSet);
     }
 }
