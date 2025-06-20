@@ -7,6 +7,21 @@ public class MaxProductOf3Numbers {
         System.out.println(maximumProduct(nums));
     }
 
+    /**
+     * This method finds the maximum product of three numbers in an array.
+     * It considers both the case of three largest positive numbers and two smallest (most negative) numbers with the largest positive number.
+     *
+     * The algorithm works as follows:
+     * 1. If the array length is 3, it checks if any number is zero and returns 0 if so.
+     * 2. It finds the three largest numbers in the array.
+     * 3. It finds the two smallest numbers in the array.
+     * 4. It calculates the product of the three largest numbers.
+     * 5. It calculates the product of the two smallest numbers and the largest number.
+     * 6. It returns the maximum of the two products.
+     * 
+     * @param nums an array of integers
+     * @return the maximum product of three numbers
+     */
     public static int maximumProduct(int[] nums) {
 
         if(nums.length==3) {
@@ -40,6 +55,20 @@ public class MaxProductOf3Numbers {
         return Math.max(product1, product2);
     }
 
+    /**
+     * This method finds the largest number in an array and replaces it with Integer.MIN_VALUE.
+     * It returns the largest number found.
+     * 
+     * The algorithm works as follows:
+     * 1. It initializes a variable `max` to Integer.MIN_VALUE.
+     * 2. It iterates through the array to find the largest number.
+     * 3. It keeps track of the index of the largest number.    
+     * 4. It replaces the largest number with Integer.MIN_VALUE to ensure it is not counted again.
+     * 5. It returns the largest number found.
+     *
+     * @param arr an array of integers
+     * @return the largest integer in the array
+     */
     private static int findLargest(int[] arr) {
         if(arr.length == 1) {
             return arr[0];
@@ -58,6 +87,20 @@ public class MaxProductOf3Numbers {
         return max;
     }
 
+    /**
+     * This method finds the smallest number in an array and replaces it with Integer.MAX_VALUE.
+     * It returns the smallest number found.
+     * 
+     * The algorithm works as follows:
+     * 1. It initializes a variable `min` to Integer.MAX_VALUE.
+     * 2. It iterates through the array to find the smallest number.
+     * 3. It keeps track of the index of the smallest number.
+     * 4. It replaces the smallest number with Integer.MAX_VALUE to ensure it is not counted again.
+     * 5. It returns the smallest number found.
+     *
+     * @param arr an array of integers
+     * @return the smallest integer in the array
+     */
     private static int findSmallest(int[] arr) {
         if(arr.length == 1) {
             return arr[0];

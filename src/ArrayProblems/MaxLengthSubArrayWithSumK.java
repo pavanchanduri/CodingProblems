@@ -4,25 +4,26 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class MaxLengthSubArrayWithSum0 {
+public class MaxLengthSubArrayWithSumK {
     public static void main(String[] args) {
-        int[] arr = {1, 0, -4, 3, 1, 0};
-        System.out.println(maxLen(arr));
+        int[] arr = {1, 0, -4, 3, 1, -1, 1};
+        int k = 1;
+        System.out.println(maxLengthSubArray(arr,k));
     }
 
     /**
-     * Given an array of integers, find the maximum length of a subarray with a sum of 0.
-     * 
+     * Given an array of integers, find the maximum length of a subarray with a sum of k.
+     *
      * The algorithm works as follows:
      * 1. Calculate the prefix sum for each index in the array.
      * 2. Use a HashMap to store the first occurrence of each prefix sum.
-     * 3. If a prefix sum is found again, it indicates that the subarray between the two indices has a sum of 0.
+     * 3. If a prefix sum is found again, it indicates that the subarray between the two indices has a sum of k.
      * 4. Keep track of the maximum length of such subarrays.
      * 
      * @param arr the input array of integers
-     * @return the maximum length of a subarray with sum 0
+     * @return the maximum length of a subarray with sum k
      */
-    private static int maxLen(int[] arr) {
+    private static int maxLengthSubArray(int[] arr, int k) {
 
         int[] prefixSum = new int[arr.length];
         prefixSum[0] = arr[0];
@@ -43,7 +44,7 @@ public class MaxLengthSubArrayWithSum0 {
         // This is why we check for prefixSum[i] == 0 and update the length
         // accordingly.
         for(int i=0;i<prefixSum.length;i++) {
-            if(prefixSum[i]==0) {
+            if(prefixSum[i]==k) {
                 length = i+1;
             }
             maxLength = Math.max(length, maxLength);
@@ -78,12 +79,12 @@ public class MaxLengthSubArrayWithSum0 {
         map.put(0, Arrays.asList(-1,-1)); // To handle the case where the prefix sum is 0 at the start of the array
         length = 0; // Reset length to 0 before checking the map
         for(int i=0;i<prefixSum.length;i++) {
-            if(map.containsKey(prefixSum[i])) {
-                map.put(prefixSum[i], Arrays.asList(map.get(prefixSum[i]).get(0), i));
+            if(map.containsKey(prefixSum[i]-k)) {
+                map.put(prefixSum[i]-k, Arrays.asList(map.get(prefixSum[i]-k).get(0), i));
             } else {
-                map.put(prefixSum[i], Arrays.asList(i,i));
+                map.put(prefixSum[i]-k, Arrays.asList(i,i));
             }
-            length = map.get(prefixSum[i]).get(map.get(prefixSum[i]).size()-1)-map.get(prefixSum[i]).get(0);
+            length = map.get(prefixSum[i]-k).get(map.get(prefixSum[i]-k).size()-1)-map.get(prefixSum[i]-k).get(0);
             maxLength = Math.max(length, maxLength);
         }
         return maxLength;

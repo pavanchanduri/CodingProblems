@@ -7,6 +7,27 @@ public class MedianOfTwoSortedArrays {
         System.out.println(findMedianSortedArrays(arr1, arr2));
     }
 
+    /**
+     * This method finds the median of two sorted arrays.
+     * It uses binary search to find the correct partition point
+     * in the smaller array, ensuring that the left side contains
+     * all elements less than or equal to the right side.
+     * 
+     * The algorithm works as follows:
+     * 1. Ensure that nums1 is the smaller array.
+     * 2. Calculate the total length of both arrays.
+     * 3. Use binary search on the smaller array to find the partition point.
+     * 4. Calculate the left and right elements around the partition.
+     * 5. Check if the partition is valid (i.e., all left elements are
+     *   less than or equal to the right elements).
+     * 6. If valid, calculate the median based on the total length
+     *   (even or odd).
+     * 7. If not valid, adjust the binary search range accordingly.
+     *
+     * @param nums1 First sorted array
+     * @param nums2 Second sorted array
+     * @return The median of the two sorted arrays
+     */
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
         int n1 = nums1.length;
