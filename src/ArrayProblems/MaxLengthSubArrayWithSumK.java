@@ -53,9 +53,10 @@ public class MaxLengthSubArrayWithSumK {
             // with the earlier occurrence of the same prefix sum.
             // This way, we ensure that we always have the earliest index for each prefix sum.
             // This is important to ensure we get the longest subarray with the same prefix sum.
-            if (!map.containsKey(prefixSum)) {
-                map.put(prefixSum, i);
+            if (map.containsKey(prefixSum)) {
+                continue;
             }
+            map.put(prefixSum, i);
         }
         return maxLength;
     }
