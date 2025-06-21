@@ -14,7 +14,8 @@ public class FindKLargestElement {
 
     /**
      * This method finds the k-th largest element in an array.
-     *
+     * Idea is the kth max element is the root of a min-heap of size k.
+     * 
      * The algorithm works as follows:
      * 1. Create a min-heap to store the k largest elements.
      * 2. Iterate through all elements in the array.
@@ -39,6 +40,8 @@ public class FindKLargestElement {
                 minHeap.poll();
             }
         }
+
+        System.out.println(minHeap);
 
         // The root of the heap is the k-th largest element
         return minHeap.peek();

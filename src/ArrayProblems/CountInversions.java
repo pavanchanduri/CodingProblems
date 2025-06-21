@@ -7,7 +7,6 @@ public class CountInversions {
     public static void main(String[] args) {
         int[] arr = {2,4,1,3,5};
         int inversionCount = mergeSort(arr,0,arr.length-1);
-
         System.out.println(inversionCount);
     }
 

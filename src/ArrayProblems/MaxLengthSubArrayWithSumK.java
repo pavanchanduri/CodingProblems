@@ -1,13 +1,11 @@
 package ArrayProblems;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class MaxLengthSubArrayWithSumK {
     public static void main(String[] args) {
         int[] arr = {1, 0, -4, 3, 1, -1, 1};
-        int k = 1;
+        int k = -3;
         System.out.println(maxLengthSubArray(arr,k));
     }
 
@@ -15,77 +13,49 @@ public class MaxLengthSubArrayWithSumK {
      * Given an array of integers, find the maximum length of a subarray with a sum of k.
      *
      * The algorithm works as follows:
-     * 1. Calculate the prefix sum for each index in the array.
-     * 2. Use a HashMap to store the first occurrence of each prefix sum.
-     * 3. If a prefix sum is found again, it indicates that the subarray between the two indices has a sum of k.
-     * 4. Keep track of the maximum length of such subarrays.
+     * 1. Initialize a HashMap to store the prefix sums and their first occurrence indices.
+     * 2. Iterate through the array, maintaining a running prefix sum.
+     * 3. For each element, check if the current prefix sum equals k. If it does, update the maximum length.
+     * 4. Check if there exists a prefix sum such that when subtracted from the current prefix sum equals k.
+     * 5. If such a prefix sum exists, calculate the length of the subarray and update the maximum length if it's greater than the current maximum.
+     * 6. Store the first occurrence of the prefix sum in the HashMap if it does not already exist.
      * 
      * @param arr the input array of integers
      * @return the maximum length of a subarray with sum k
      */
     private static int maxLengthSubArray(int[] arr, int k) {
-
-        int[] prefixSum = new int[arr.length];
-        prefixSum[0] = arr[0];
-        HashMap<Integer, List<Integer>> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         int maxLength = 0;
-        int length = 0;
+        int prefixSum = 0;
 
-        for(int i=1;i<arr.length;i++) {
-            prefixSum[i] = prefixSum[i-1] + arr[i];
-        }
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
 
-        // If the sum is 0 at any index, we can consider the subarray from the start to that index.
-        // This is important because it allows us to count subarrays that start from index 0
-        // and have a sum of 0.
-        // For example, if the prefix sum at index 3 is 0, it means
-        // the subarray from index 0 to index 3 has a sum of 0
-        // and we can consider this subarray in our calculations.
-        // This is why we check for prefixSum[i] == 0 and update the length
-        // accordingly.
-        for(int i=0;i<prefixSum.length;i++) {
-            if(prefixSum[i]==k) {
-                length = i+1;
+            // Check if the current prefix sum is equal to k
+            if (prefixSum == k) {
+                maxLength = i + 1; // Update maxLength if the subarray from start to i has sum k
             }
-            maxLength = Math.max(length, maxLength);
-        }
 
-        // Now we check for the prefix sums in the map.
-        // If a prefix sum is found again, it indicates that the subarray
-        // between the two indices has a sum of 0.
-        // We update the map with the first occurrence of the prefix sum
-        // and calculate the length of the subarray.
-        // The length is calculated as the difference between the current index
-        // and the first occurrence of the prefix sum.
-        // We keep track of the maximum length of such subarrays.
-        // This is important because it allows us to find the longest subarray
-        // with a sum of 0, even if it starts from an index other than 0.
-        // For example, if the prefix sum at index 5 is the same as
-        // the prefix sum at index 2, it means the subarray from index 3
-        // to index 5 has a sum of 0, and we can consider this subarray
-        // in our calculations.
-        // This is why we check for prefixSum[i] in the map and update the length
-        // accordingly.
-        // If the prefix sum is not found in the map, we add it with the current
-        // index as both the first and last occurrence.
-        // This allows us to keep track of the first occurrence of the prefix sum
-        // and calculate the length of the subarray correctly.
-        // If the prefix sum is found in the map, we update the last occurrence
-        // of the prefix sum to the current index.
-        // This allows us to keep track of the longest subarray with a sum of 0
-        // and calculate the length correctly.
-        // The final result is the maximum length of such subarrays.
-        // This is why we return maxLength at the end of the method.
-        map.put(0, Arrays.asList(-1,-1)); // To handle the case where the prefix sum is 0 at the start of the array
-        length = 0; // Reset length to 0 before checking the map
-        for(int i=0;i<prefixSum.length;i++) {
-            if(map.containsKey(prefixSum[i]-k)) {
-                map.put(prefixSum[i]-k, Arrays.asList(map.get(prefixSum[i]-k).get(0), i));
-            } else {
-                map.put(prefixSum[i]-k, Arrays.asList(i,i));
+            // Idea here is that if there exists a prefix sum such that prefixSum - k = previousPrefixSum,
+            // then the subarray from the index of previousPrefixSum + 1 to i has sum k.
+            // Check if there exists a prefix sum such that prefixSum - k = previousPrefixSum
+            // If it exists, calculate the length of the subarray and update maxLength if it's greater
+            // than the current maxLength.
+            if (map.containsKey(prefixSum - k)) {
+                maxLength = Math.max(maxLength, i - map.get(prefixSum - k));
             }
-            length = map.get(prefixSum[i]-k).get(map.get(prefixSum[i]-k).size()-1)-map.get(prefixSum[i]-k).get(0);
-            maxLength = Math.max(length, maxLength);
+
+            // Store the first occurrence of the prefix sum
+            // We only store the first occurrence to maximize the length of the subarray
+            // If the prefix sum already exists, we do not update it to ensure we get the longest subarray
+            // with the same prefix sum.
+            // This is crucial because if we update it, we might miss a longer subarray that could have been formed
+            // with the earlier occurrence of the same prefix sum.
+            // This way, we ensure that we always have the earliest index for each prefix sum.
+            // This is important to ensure we get the longest subarray with the same prefix sum.
+            if (!map.containsKey(prefixSum)) {
+                map.put(prefixSum, i);
+            }
         }
         return maxLength;
     }
