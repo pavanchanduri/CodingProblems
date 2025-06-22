@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class MaxLengthSubArrayWithSumK {
     public static void main(String[] args) {
         int[] arr = {1, 0, -4, 3, 1, -1, 1};
-        int k = -3;
+        int k = 0;
         System.out.println(maxLengthSubArray(arr,k));
     }
 

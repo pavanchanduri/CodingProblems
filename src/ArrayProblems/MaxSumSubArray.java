@@ -35,18 +35,8 @@ public class MaxSumSubArray {
 
         for(int i=0;i<n;i++) {
 
-            if(leftSum <= 0) {
-                leftSum = nums[i];
-            } else {
-                leftSum += nums[i];
-            }
-
-            if(rightSum <= 0) {
-                rightSum = nums[n-i-1];
-            } else {
-                rightSum+= nums[n-i-1];
-            }
-
+            leftSum = leftSum <= 0 ? nums[i] : leftSum + nums[i];
+            rightSum = rightSum <= 0 ? nums[n-1-i] : rightSum + nums[n-1-i];
             maxSum = Math.max(maxSum, Math.max(leftSum, rightSum));
         }
         return maxSum;

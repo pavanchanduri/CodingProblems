@@ -30,7 +30,10 @@ public class MaxProductOf3Numbers {
             }
         }
 
-        if(nums[1]==0&&nums.length==4) {
+        // If the array has only 4 elements and the second element is zero, return 0.
+        // This is a special case to handle arrays like [-1, 0, 2, 3].
+        // In such cases, the maximum product of three numbers cannot be formed.
+        if(nums.length==4 && (nums[0]==0 || nums[2]==0 || nums[3]==0)) {
             return 0;
         }
 

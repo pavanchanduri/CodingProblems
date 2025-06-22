@@ -39,24 +39,14 @@ public class MaxProductSubArray {
         int leftProduct = 1;
         int rightProduct = 1;
 
-        int ans = arr[0];
+        int maxProd = arr[0];
 
         for (int i = 0; i < n; i++) {
 
-            if(leftProduct == 0) {
-                leftProduct = 1; // Reset if product becomes zero
-            } else {
-                leftProduct *= arr[i];
-            }
-
-            if(rightProduct == 0) {
-                rightProduct = 1; // Reset if product becomes zero
-            } else {
-                rightProduct *= arr[n-i-1];
-            }
-
-            ans = Math.max(ans, Math.max(leftProduct, rightProduct));
+            leftProduct = leftProduct==0 ? 1 : leftProduct*arr[i]; // Reset if product becomes zero
+            rightProduct = rightProduct==0 ? 1 : rightProduct*arr[n-1-i]; // Reset if product becomes zero
+            maxProd = Math.max(maxProd, Math.max(leftProduct, rightProduct));
         }
-        return ans;
+        return maxProd;
     }
 }
