@@ -11,6 +11,10 @@ public class LongestConsecutiveSubSequence {
     }
 
     /**
+     * This method finds the length of the longest consecutive subsequence in an array.
+     * It uses a Set to store the elements of the array and iterates through the array
+     * to find the starting points of consecutive sequences.
+     * 
      * The algorithm works as follows:
      * 1. Push all elements in to Set
      * 2. Iterate over all elements in the array and if there exists an element for
