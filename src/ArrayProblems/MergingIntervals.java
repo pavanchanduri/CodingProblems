@@ -9,7 +9,7 @@ public class MergingIntervals {
 
     public static void main(String[] args) {
 
-        int[][] intervals ={{1,3},{2,6},{8,10},{15,16}};
+        int[][] intervals ={{1,3},{2,6},{8,10},{2,5},{15,16}};
 
         int[][] mergedIntervals = mergeIntervals(intervals);
 
