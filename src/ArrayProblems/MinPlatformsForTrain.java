@@ -12,7 +12,29 @@ public class MinPlatformsForTrain {
 
         double[] arr = {9, 9.75, 9.9, 11, 15, 18};
         double[] dep = {9.3, 12, 11.5, 11.9, 19, 20};
+        int result = minPlatforms(arr, dep);
+        System.out.println("Minimum platforms needed: " + result);
+    }
 
+    /**
+     * This method calculates the minimum number of platforms required for the trains.
+     * 
+     * The algorithm works as follows:
+     * 1. Sort the arrival and departure arrays.
+     * 2. Use two pointers, one for the arrival array and one for the departure array.
+     * 3. Iterate through the arrival array:
+     *   - If the current arrival time is less than or equal to the current departure time
+     *     increment the count of platforms needed.
+     *  - If the current arrival time is greater than the current departure time
+     *    decrement the count of platforms needed.
+     *  - Keep track of the maximum number of platforms needed at any time.
+     * 4. Return the maximum count as the result.
+     *
+     * @param arr The array of arrival times.
+     * @param dep The array of departure times.
+     * @return The minimum number of platforms needed.
+     */
+    private static int minPlatforms(double[] arr, double[] dep) {
         Arrays.sort(arr);
         Arrays.sort(dep);
         int i=0,j=0;
@@ -29,6 +51,6 @@ public class MinPlatformsForTrain {
                 j++;
             }
         }
-        System.out.println(maxCount);
+        return maxCount;
     }
 }
