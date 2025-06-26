@@ -35,6 +35,26 @@ public class MinPlatformsForTrain {
      * @return The minimum number of platforms needed.
      */
     private static int minPlatforms(double[] arr, double[] dep) {
+        if (arr.length == 0 || dep.length == 0 || arr.length != dep.length) {
+            return 0; // No trains or mismatched arrays
+        }
+        if (arr.length == 1) {
+            return 1; // Only one train, one platform needed
+        }
+        
+        /**
+         * Sort the arrival and departure arrays.
+         * Sorting is essential to ensure that we can efficiently determine the number of platforms needed
+         * at any given time by comparing the arrival and departure times in chronological order.
+         * This allows us to process the trains in the order they arrive and depart,
+         * which is crucial for accurately counting the platforms required.
+         * The sorting operation has a time complexity of O(n log n), where n is the number of trains.
+         * After sorting, we can efficiently traverse both arrays to determine the maximum number of platforms needed at any time.
+         * The two-pointer technique used in the subsequent logic ensures that we only traverse each array once,
+         * leading to a linear time complexity of O(n) for the counting process.
+         * Thus, the overall time complexity of this algorithm is O(n log n) due to the sorting step,
+         * followed by O(n) for the counting step, resulting in an efficient solution for the problem.
+         */
         Arrays.sort(arr);
         Arrays.sort(dep);
         int i=0,j=0;
@@ -55,7 +75,6 @@ public class MinPlatformsForTrain {
                  * This is crucial for determining the maximum number of platforms needed at any point in time.
                  */
                 count++;
-                maxCount = Math.max(maxCount, count);
                 i++;
             } else if(arr[i]>dep[j]) {
                 /**
@@ -69,6 +88,13 @@ public class MinPlatformsForTrain {
                 count--;
                 j++;
             }
+            /**
+             * This line updates the maximum count of platforms needed at any point in time.
+             * It compares the current count of platforms needed with the maximum count recorded so far.
+             * If the current count is greater than the maximum count, it updates the maximum count.
+             * This is essential for determining the peak number of platforms required during the schedule.
+             */
+            maxCount = Math.max(maxCount, count);
         }
         return maxCount;
     }
