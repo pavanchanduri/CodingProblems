@@ -10,8 +10,8 @@ public class MinPlatformsForTrain {
 
     public static void main(String[] args) {
 
-        double[] arr = {9, 9.75, 9.9, 11, 15, 18};
-        double[] dep = {9.3, 12, 11.5, 11.9, 19, 20};
+        double[] arr = {9.00, 9.45, 9.55, 10.30, 11.00, 15.00, 18.00};
+        double[] dep = {9.30, 12.00, 11.30, 11.30, 11.50, 19.00, 20.00};
         int result = minPlatforms(arr, dep);
         System.out.println("Minimum platforms needed: " + result);
     }
