@@ -43,10 +43,29 @@ public class MinPlatformsForTrain {
 
         while(i<arr.length) {
             if(arr[i]<=dep[j]) {
+                /**
+                 * This condition checks if the current train's arrival time is less than or equal to
+                 * the current train's departure time.
+                 * If true, it means that the current train has not yet left, and a new train has arrived,
+                 * so we increment the count of platforms needed.
+                 * The count variable keeps track of the number of platforms currently in use.
+                 * The maxCount variable keeps track of the maximum number of platforms needed at any time.
+                 * The i variable is incremented to move to the next train's arrival time.
+                 * The j variable remains unchanged because we are still considering the same train's departure time.
+                 * This is crucial for determining the maximum number of platforms needed at any point in time.
+                 */
                 count++;
                 maxCount = Math.max(maxCount, count);
                 i++;
             } else if(arr[i]>dep[j]) {
+                /**
+                 * This condition checks if the current train's arrival time is greater than the current train's
+                 * departure time.
+                 * If true, it means that the current train has left, and we can decrement the count of platforms needed.
+                 * The count variable is decremented to reflect that one platform is now free.
+                 * The j variable is incremented to move to the next train's departure time.
+                 * This ensures that we are always comparing the current arrival time with the correct departure time.
+                 */
                 count--;
                 j++;
             }
