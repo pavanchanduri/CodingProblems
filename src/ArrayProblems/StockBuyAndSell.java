@@ -23,9 +23,7 @@ public class StockBuyAndSell {
             } else {
                 int sell_price = prices[i];
                 profit = sell_price-buy_price;
-                if(profit>maxProfit){
-                    maxProfit = profit;
-                }
+                maxProfit = Math.max(maxProfit, profit);
             }
         }
         System.out.println("Max Profit: "+maxProfit);
