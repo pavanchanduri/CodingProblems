@@ -32,13 +32,39 @@ public class MinimumJumpsNeeded {
         int jumps = 0;
 
         for(int i = 0; i < arr.length; i++){
+            /*
+             * If the current index is greater than the maximum reachable index,
+             * it means we cannot proceed further, hence return -1.
+             * This condition is not explicitly checked here,
+             * but if `maxIndex` is less than `i`, it implies that we are
+             * stuck and cannot make any further jumps. 
+             * If we reach this point, it means we can still make jumps.
+             * 
+             */
             maxIndex = Math.max(maxIndex, i + arr[i]);
 
+            /**
+             * If we reach the end of the current jump range (endIndex),
+             * we need to make a jump.
+             * We update the endIndex to the maximum reachable index found so far.
+             * If the endIndex is equal to the current index, it means we are at the
+             * end of the current jump range and need to make a jump.   
+             * If the endIndex is updated to maxIndex,
+             * it means we can reach further in the next jump.
+             * We increment the jump count.
+             * This ensures that we only count a jump when we actually need to make one,
+             * i.e., when we reach the end of the current jump range.
+             */
             if(endIndex == i) {
                 endIndex = maxIndex;
                 jumps++;
             }
 
+            /**
+             * If the endIndex reaches or exceeds the last index of the array,
+             * it means we can reach the end of the array with the current number of jumps.
+             * We return the number of jumps made so far.
+             */
             if(endIndex >= arr.length - 1){
                 return jumps;
             }
