@@ -58,8 +58,8 @@ public class MinPlatformsForTrain {
         Arrays.sort(arr);
         Arrays.sort(dep);
         int i=0,j=0;
-        int count = 0;
-        int maxCount = 0;
+        int platformCount = 0;
+        int maxPlatforms = 0;
 
         while(i<arr.length) {
             if(arr[i]<=dep[j]) {
@@ -74,7 +74,7 @@ public class MinPlatformsForTrain {
                  * The j variable remains unchanged because we are still considering the same train's departure time.
                  * This is crucial for determining the maximum number of platforms needed at any point in time.
                  */
-                count++;
+                platformCount++;
                 i++;
             } else if(arr[i]>dep[j]) {
                 /**
@@ -85,7 +85,7 @@ public class MinPlatformsForTrain {
                  * The j variable is incremented to move to the next train's departure time.
                  * This ensures that we are always comparing the current arrival time with the correct departure time.
                  */
-                count--;
+                platformCount--;
                 j++;
             }
             /**
@@ -94,8 +94,8 @@ public class MinPlatformsForTrain {
              * If the current count is greater than the maximum count, it updates the maximum count.
              * This is essential for determining the peak number of platforms required during the schedule.
              */
-            maxCount = Math.max(maxCount, count);
+            maxPlatforms = Math.max(maxPlatforms, platformCount);
         }
-        return maxCount;
+        return maxPlatforms;
     }
 }
