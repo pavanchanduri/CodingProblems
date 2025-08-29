@@ -35,13 +35,16 @@ public class LongestConsecutiveSubSequence {
         }
 
         for(int value: arr) {
+            // For each value, check if value-1 is not in the set.
+            // If value-1 is missing, then value is the start of a new consecutive sequence.
             if(set.contains(value) && !set.contains(value-1)) {
                 int currValue = value;
                 int count = 0;
+                // Loop until there is currentValue+1 in the set
                 while(set.contains(currValue)) {
-                    set.remove(currValue);
+                    set.remove(currValue); // Remove currentValue from the set to avoid re-computation
                     count++;
-                    currValue++;
+                    currValue++; // Move to the next consecutive value
                 }
                 result = Math.max(result, count);
             }

@@ -10,11 +10,11 @@ import java.util.Scanner;
 public class FactorialsOfLargeNumbers {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         scanner.close();
-        factorial(n).forEach(System.out::print);
+        ArrayList<Integer> factorialDigits = factorial(n);
+        System.out.println(factorialDigits);
     }
 
     /**
@@ -34,14 +34,14 @@ public class FactorialsOfLargeNumbers {
      */
     private static ArrayList<Integer> factorial(int n) {
         ArrayList<Integer> result = new ArrayList<>();
-        BigInteger fact = BigInteger.ONE;
+        BigInteger fact = BigInteger.valueOf(1); // Initialize factorial to 1
 
         for (int i = 2; i <= n; i++) {
             fact = fact.multiply(BigInteger.valueOf(i));
         }
 
         String factStr = fact.toString();
-        for (int i = factStr.length() - 1; i >= 0; i--) {
+        for (int i = 0; i < factStr.length(); i++) {
             result.add(factStr.charAt(i) - '0');
         }
         return result;
