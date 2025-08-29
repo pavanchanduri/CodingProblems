@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class LargestNumberFromArray {
 
     public static void main(String[] args) {
-        int[] arr = {3,30,34,5,9};
+        int[] arr = {3,30,43,5,9};
         System.out.println("Largest Number Formed: " + formLargestNumber(arr));
     }
 
@@ -31,10 +31,12 @@ public class LargestNumberFromArray {
         
         // Sort the string array based on custom comparison
         // We want to sort such that for two strings a and b,
-        // a should come before b if (b + a) is greater than (a + b)
+        // a should come before b if (b + a) is less than (a + b)
         // This ensures that we get the largest concatenated result
         Arrays.sort(strArr, (a, b) -> (b + a).compareTo(a + b));
-        
+        //For smallest number, sort in natural order
+        //Arrays.sort(strArr);
+
         if (strArr[0].equals("0")) {
             return "0"; // If the largest number is 0, return "0"
         }
