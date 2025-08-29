@@ -7,6 +7,10 @@ public class CountInversions {
     public static void main(String[] args) {
         int[] arr = {2,4,1,3,5};
         int inversionCount = mergeSort(arr,0,arr.length-1);
+        /**
+         * The output 3 means there are 3 pairs (i, j) where i < j and arr[i] > arr[j].
+         * These pairs are: (0,2), (1,2), (1,3).
+         */
         System.out.println(inversionCount);
     }
 
