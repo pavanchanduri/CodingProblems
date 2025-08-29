@@ -1,6 +1,8 @@
 package ArrayProblems;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +14,7 @@ public class CommonElementsIn3SortedArrays {
         List<Integer> list2 = new ArrayList<>(Arrays.asList(6, 7, 20, 80, 80, 100));
         List<Integer> list3 = new ArrayList<>(Arrays.asList(3, 4, 15, 20, 30, 70, 80, 80, 120));
 
-        List<Integer> resultList = commonElements(list1, list2, list3);
+        Set<Integer> resultList = commonElements(list1, list2, list3);
         System.out.println(resultList);
     }
 
@@ -30,19 +32,17 @@ public class CommonElementsIn3SortedArrays {
      * @param list1 First sorted list of integers
      * @param list2 Second sorted list of integers
      * @param list3 Third sorted list of integers
-     * @return A list containing common elements in all three lists
+     * @return A Set containing common elements in all three lists
      */
-    public static List<Integer> commonElements(List<Integer> list1, List<Integer> list2,
+    public static Set<Integer> commonElements(List<Integer> list1, List<Integer> list2,
                                                List<Integer> list3) {
         int i=0,j=0,k=0;
-        List<Integer> resultList = new ArrayList<>();
+        Set<Integer> resultSet = new HashSet<>();
 
         while(i< list1.size() && j< list2.size() && k< list3.size()) {
 
             if(Objects.equals(list1.get(i), list2.get(j)) && Objects.equals(list2.get(j), list3.get(k))) {
-                if(!resultList.contains(list1.get(i))) {
-                    resultList.add(list1.get(i));
-                }
+                resultSet.add(list1.get(i));
                 i++;j++;k++;
             } else if(list1.get(i) < list2.get(j)) {
                 i++;
@@ -52,6 +52,6 @@ public class CommonElementsIn3SortedArrays {
                 k++;
             }
         }
-        return resultList;
+        return resultSet;
     }
 }
