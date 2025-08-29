@@ -6,7 +6,7 @@ public class BalancedParentheses {
 
     public static void main (String[] args) {
 
-        String s="()[{}()]";
+        String s="(((()[{}()])))";
         if(isValid(s))
             System.out.println("True");
         else
@@ -51,6 +51,8 @@ public class BalancedParentheses {
                 }
             }
         }
+        // for input like "(((" or "(()", where there are unmatched opening parentheses, this will return false
+        // if stack is empty, then the parentheses are balanced
         return st.isEmpty();
     }
 }
