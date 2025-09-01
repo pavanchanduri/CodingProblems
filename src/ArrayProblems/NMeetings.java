@@ -41,8 +41,23 @@ public class NMeetings {
 
     public static void main(String[] args) {
         int[] start = {1,0,3,8,5,8};
-        int[] end = {2,6,4,9,7,9};
+        int[] end   = {2,6,4,9,7,9};
 
+        nMeetings(start, end);
+    }
+
+    /**
+     * Find the maximum number of meetings that can be scheduled
+     * The algorithm works as follows:
+     * 1. Create a list of meetings with their start and end times
+     * 2. Sort the meetings based on their end times
+     * 3. Iterate through the sorted meetings and select the ones that don't overlap
+     * 4. Print the selected meetings
+     *
+     * @param start - array of start times for the meetings
+     * @param end - array of end times for the meetings
+     */
+    private static void nMeetings(int[] start, int[] end) {
         List<Meeting> meet = new ArrayList<>();
 
         for(int i=0; i<start.length; i++) {
@@ -51,13 +66,13 @@ public class NMeetings {
 
         MeetingComparator mc = new MeetingComparator();
         meet.sort(mc); //Sort the meetings as per their end time using Meeting Comparator
-        List<Integer> result = new ArrayList<>();
-        result.add(meet.get(0).start);
+        List<String> result = new ArrayList<>();
+        result.add(String.valueOf(meet.get(0).start)+" - "+String.valueOf(meet.get(0).end));
         int limit = meet.get(0).end;
         for(int i=1; i<start.length; i++) {
             //compare last meeting endtime with next meeting start time
             if(meet.get(i).start>limit) {
-                result.add(meet.get(i).position);
+                result.add(String.valueOf(meet.get(i).start)+" - "+String.valueOf(meet.get(i).end));
                 limit = meet.get(i).end; //update limit to the next meeting end time
             }
         }
@@ -66,4 +81,5 @@ public class NMeetings {
             System.out.println(result.get(i));
         }
     }
+
 }

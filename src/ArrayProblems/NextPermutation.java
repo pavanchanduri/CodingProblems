@@ -32,7 +32,7 @@ public class NextPermutation {
             return;
         }
 
-        //Swap the pivot element with the next greater element on right
+        //Swap the pivot element with the smallest element greater than pivot on its right side
         for(int i=nums.length-1;i>pivotIndex;i--) {
             if(nums[i]>nums[pivotIndex]) {
                 int temp = nums[pivotIndex];

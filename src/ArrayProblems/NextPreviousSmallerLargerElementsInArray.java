@@ -34,6 +34,14 @@ public class NextPreviousSmallerLargerElementsInArray {
 
     }
 
+    /**
+     * Find the previous smaller element for each element in the array.
+     * The algorithm works by using a stack to keep track of the previous smaller elements.
+     * It iterates through the array and for each element, it pops elements from the stack
+     * until it finds an element smaller than the current element.
+     * @param arr The input array.
+     * @return An array containing the previous smaller elements.
+     */
     private static int[] previousSmallerElement(int[] arr) {
 
         Stack<Integer> stack = new Stack<>();
