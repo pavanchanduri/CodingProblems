@@ -57,9 +57,9 @@ public class MinPlatformsForTrain {
          */
         Arrays.sort(arr);
         Arrays.sort(dep);
-        int i=0,j=0;
-        int platformCount = 0;
-        int maxPlatforms = 0;
+        int i=1,j=0;
+        int platformCount = 1;
+        int maxPlatforms = 1;
 
         while(i<arr.length) {
             if(arr[i]<=dep[j]) {

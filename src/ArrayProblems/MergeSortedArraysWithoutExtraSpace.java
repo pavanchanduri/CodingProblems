@@ -24,19 +24,16 @@ public class MergeSortedArraysWithoutExtraSpace {
         int i=arr1.length-arr2.length-1, j=arr2.length-1;
 
         while(i>=0&&j>=0) { 
-            // Compare elements from the end of both arrays
-            // Place the larger element at the end of arr1
-            // and move the index of the array from which the element was taken
-            // If arr1[i] is greater than or equal to arr2[j], place arr1[i] at index and decrement i
-            // Otherwise, place arr2[j] at index
-            // and decrement j
-            // Decrement index after placing the element
-            // This ensures that we are filling arr1 from the end towards the beginning
-            // This is done to avoid overwriting elements in arr1 that have not been compared yet
-            // This is a two-pointer approach where we are comparing elements from both arrays
-            // and placing the larger element at the end of arr1
-            // This ensures that we are merging the two arrays in sorted order
-            // without using extra space
+            /**Compare elements from the end of both arrays Place the larger element at the end of arr1
+            and move the index of the array from which the element was taken
+            If arr1[i] is greater than or equal to arr2[j], place arr1[i] at index and decrement i
+            otherwise, place arr2[j] at index and decrement j, decrement index after placing the element
+            This ensures that we are filling arr1 from the end towards the beginning
+            This is done to avoid overwriting elements in arr1 that have not been compared yet
+            This is a two-pointer approach where we are comparing elements from both arrays
+            and placing the larger element at the end of arr1
+            This ensures that we are merging the two arrays in sorted order
+            without using extra space */
             if(arr1[i]>=arr2[j]) {
                 arr1[index--] = arr1[i--];
             } else {

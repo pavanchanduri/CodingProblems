@@ -42,7 +42,6 @@ public class NextPermutation {
             }
         }
 
-
         //Reverse the elements from pivot+1 till last index
         int left = pivotIndex+1, right = nums.length-1;
         while(left<=right) {

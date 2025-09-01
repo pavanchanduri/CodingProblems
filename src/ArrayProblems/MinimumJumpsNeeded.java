@@ -7,7 +7,7 @@ package ArrayProblems;
 public class MinimumJumpsNeeded {
 
     public static void main(String[] args) {
-        int[] arr = {1,3,5,8,4,2,6,3};
+        int[] arr = {1,3,5,9,4,2,6,3};
         int result = minJumps(arr);
         System.out.println("Minimum jumps needed: " + result);
     }

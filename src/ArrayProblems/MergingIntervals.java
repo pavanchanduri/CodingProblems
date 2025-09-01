@@ -46,6 +46,8 @@ public class MergingIntervals {
 
         for(int[] interval: intervals) {
             if(interval[0]<=newInterval[1]) {
+                //This is to cover cases such as the below
+                // [1,4] [2,3] - [1,4]
                 newInterval[1]=Math.max(newInterval[1],interval[1]);
             } else {
                 newInterval = interval;
