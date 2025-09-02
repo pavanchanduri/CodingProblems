@@ -23,7 +23,7 @@ public class Partition012 {
                 middle++;
             } else if(arr[middle] == 1) {
                 middle++;
-            } else {
+            } else if(arr[middle] == 2) {
                 swap(arr, middle, end);
                 end--;
             }

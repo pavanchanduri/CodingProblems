@@ -14,7 +14,6 @@ public class OneDuplicateInArray {
         //int[] arr = {2,5,9,6,9,3,8,9,7,1};
         int[] arr = {2,6,4,1,3,1,5};
 
-
         int slow = 0;
         int fast = 0;
 

@@ -1,6 +1,13 @@
 package ArrayProblems;
 
-import java.util.*;
+import java.util.Set;
+import java.util.List;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
 
 /**
 1. Find out all the possible pairs along with their sum and store it in a map
