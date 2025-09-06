@@ -86,9 +86,9 @@ public class GroupAnagrams {
         }
 
         StringBuilder frequencyString = new StringBuilder();
-        for (int i: freq) {
-            frequencyString.append((char)i+'a');
-            frequencyString.append(i);
+        for (int j = 0; j < freq.length; j++) {
+            frequencyString.append((char)('a' + j));
+            frequencyString.append(freq[j]);
         }
         return frequencyString.toString();
     }
