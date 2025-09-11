@@ -1,6 +1,6 @@
 package Strings;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -34,7 +34,7 @@ public class FirstUniqueCharacter {
      * @return The index of the first unique character, or -1 if none exists.
      */
     public static int firstUniqueCharacter(String str) {
-        Map<Character, Integer> frequencyMap = new HashMap<>();
+        Map<Character, Integer> frequencyMap = new LinkedHashMap<>();
 
         // Step 1: Create frequency map
         for (char c : str.toCharArray()) {
