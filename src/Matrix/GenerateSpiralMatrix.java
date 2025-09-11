@@ -48,7 +48,7 @@ public class GenerateSpiralMatrix {
 
         for(int row = 0; row < n; row++) {
             for(int col = 0; col < n; col++) {
-                System.out.print(arr[row][col] + " ");
+                System.out.printf("%3d", arr[row][col]);
             }
             System.out.println();
         }
