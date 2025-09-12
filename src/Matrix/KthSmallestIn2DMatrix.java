@@ -1,6 +1,6 @@
 package Matrix;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class KthSmallestIn2DMatrix {
@@ -14,36 +14,38 @@ public class KthSmallestIn2DMatrix {
         System.out.println(kthSmallest(mat,mat.length,k));
     }
 
+    /**
+     * This method finds the k-th smallest element in a 2D matrix.
+     * Idea is the kth smallest element is the root of a max-heap of size k
+     * The algorithm works as follows:
+     * 1. Create a max-heap to store the k smallest elements.
+     * 2. Iterate through all elements in the matrix.
+     * 3. Add each element to the heap.
+     * 4. If the heap size exceeds k, remove the largest element.
+     * 5. The root of the heap will be the k-th smallest element.
+     * 
+     * @param mat the input 2D matrix
+     * @param n the number of rows in the matrix
+     * @param k the k-th position to find
+     * @return the k-th smallest element in the matrix
+     */
     public static int kthSmallest(int[][] mat, int n, int k) {
 
-        // Min-heap to store the k smallest elements through a custom comparator
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>(new CustomComparator());
+        // Max-heap to store the k smallest elements through a custom comparator
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
 
         // Iterate through all elements
         for(int i=0;i<mat.length;i++) {
             for(int j=0;j<mat[i].length;j++) {
-                minHeap.add(mat[i][j]); // Add the current element to the heap
+                maxHeap.add(mat[i][j]); // Add the current element to the heap
                 // If the heap size exceeds k, remove the smallest element
-                if (minHeap.size() > k) {
-                    minHeap.poll();
+                if (maxHeap.size() > k) {
+                    maxHeap.poll();
                 }
             }
         }
 
-        // The root of the heap is the k-th largest element
-        return minHeap.peek();
-    }
-
-    static class CustomComparator implements Comparator<Integer> {
-
-        @Override
-        public int compare(Integer number1, Integer number2) {
-            if(number1 < number2) {
-                return 1; //Swap
-            } else if(number1 > number2) {
-                return -1; //Do nothing
-            }
-            return 0;
-        }
+        // The root of the heap is the k-th smallest element
+        return maxHeap.peek();
     }
 }
