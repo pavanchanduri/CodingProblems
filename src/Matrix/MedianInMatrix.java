@@ -24,12 +24,8 @@ public class MedianInMatrix {
         int max = Integer.MIN_VALUE;
 
         for (int i = 0; i < r; i++) {
-            if (matrix[i][0] < min) {
-                min = matrix[i][0];
-            }
-            if (matrix[i][c - 1] > max) {
-                max = matrix[i][c - 1];
-            }
+            min = Math.min(min, matrix[i][0]);
+            max = Math.max(max, matrix[i][c - 1]);
         }
 
         int desired = (r * c + 1) / 2;
