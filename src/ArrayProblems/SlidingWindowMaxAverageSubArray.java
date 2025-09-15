@@ -2,41 +2,54 @@ package ArrayProblems;
 
 import java.util.Scanner;
 
-/**
-1. First find the sum until kth window i.e., index 0 to k-1 and store the sum as maxSum
-2. Now mark the end index as k and run a loop till the endIndex becomes arr.length-1
-3. In the loop, subtract the element used with startIndex from the sum i.e., 0 and increment it
-4. Now add the endIndex element i.e., arr[k] to the sum and increment the endIndex
-5. Keep storing maxSum in each iteration of the loop.
- */
 public class SlidingWindowMaxAverageSubArray {
 
     public static void main(String[] args) {
-
         int[] arr = {1,12,-5,-6,50,3};
-        int sum = 0;
-        int maxSum;
-        int startIndex = 0;
         Scanner scanner = new Scanner(System.in);
         int k = scanner.nextInt();
         scanner.close();
+
+        double maxAvg = findMaxAverageSubArray(arr, k);
+        System.out.println("Max Average of Sub Array: " + maxAvg);
+    }
+    /**
+     * This method finds the maximum average of any contiguous subarray of size k.
+     * It uses the sliding window technique to efficiently calculate the sum of subarrays.
+     * 
+     * The algorithm works as follows:
+     * 1. Calculate the sum of the first k elements.
+     * 2. Initialize maxSum with this initial sum.
+     * 3. Slide the window from the start to the end of the array:
+     *    - Subtract the element going out of the window (start index).
+     *    - Add the element coming into the window (end index).
+     *    - Update maxSum if the current sum is greater than maxSum.
+     * 4. Finally, return the maximum average by dividing maxSum by k.
+     *
+     * @param arr The input array
+     * @param k The size of the subarray
+     * @return The maximum average of any contiguous subarray of size k
+     */
+    private static double findMaxAverageSubArray(int[] arr, int k) {
+        if (arr == null || arr.length < k || k <= 0) return 0;
+
+        int sum = 0;
         for (int i = 0; i < k; i++)
             sum += arr[i];
 
-        maxSum = sum;
-
-        //Start Sliding window by subtracting the first number in the previous window
-        // and adding the new number in the next window
+        int maxSum = sum;
+        int startIndex = 0;
         int endIndex = k;
+
+        // Start Sliding window by subtracting the first number in the previous window
+        // and adding the new number in the next window
         while (endIndex < arr.length) {
             sum -= arr[startIndex];
             startIndex++;
-
             sum += arr[endIndex];
             endIndex++;
-
             maxSum = Math.max(maxSum, sum);
         }
-        System.out.println("Max Average of Sub Array: "+(maxSum/k));
+        return (double) maxSum / k;
     }
 }

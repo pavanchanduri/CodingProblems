@@ -1,35 +1,34 @@
 package ArrayProblems;
 
-import java.util.Scanner;
-
-/**
-1. Generate the Smallest Number whose product is equal to N
-   i.e., if N = 1000, output has to be 5558 i.e., 5X5X5X8 = 1000
-2. Start a loop with divisor as 9 till 2 and divide the number with the divisor
-3. Loop till the remainder becomes zero and append the number of times divisor was used to the answer string
-4. If the number becomes 1 -> we found the answer or else return -1
- */
 public class SmallestNumberProduct {
 
-    //Generate the Smallest Number whose product is equal to N
-    //i.e., if N = 1000, output has to be 5558 i.e., 5X5X5X8 = 1000
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            int n = scanner.nextInt();
-            String ans = "";
+        String result = smallestNumberProduct(12000);
+        System.out.println(result);
+    }
 
-            for(int div = 9; div>=2; div--) {
-                while(n%div == 0) {
-                    n /= div;
-                    ans = div+ans;
-                }
+    /**
+     * This method finds the smallest number whose digits multiply to a given number n.
+     * If no such number exists, it returns "-1".
+     * The algorithm works as follows:
+     * 1. Start with the largest digit (9) and work down to 2.
+     * 2. For each digit, check if it divides n evenly.
+     * 3. If it does, divide n by that digit and prepend the digit to the result string.
+     * 4. Continue this process until n is reduced to 1 or no more digits are left.
+     * 5. If n is not 1 at the end, return "-1" as it's not possible to form such a number.
+     * 6. Otherwise, return the formed number as a string.
+     * 
+     * @param n The target product of digits
+     * @return The smallest number whose digits multiply to n, or "-1" if not possible.
+     */
+    public static String smallestNumberProduct(int n) {
+        String ans = "";
+        for (int div = 9; div >= 2; div--) {
+            while (n % div == 0) {
+                n /= div;
+                ans = div + ans;
             }
-
-        if(n!=1) {
-            System.out.println("-1");
-        } else {
-            System.out.println(ans);
         }
-        }
+        return n != 1 ? "-1" : ans;
     }
 }

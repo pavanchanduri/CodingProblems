@@ -36,6 +36,7 @@ public class MedianInMatrix {
             for (int i = 0; i < r; ++i)
                 place += countSmallerThanMid(matrix[i], mid);
 
+            
             if (place < desired)
                 min = mid + 1;
             else
