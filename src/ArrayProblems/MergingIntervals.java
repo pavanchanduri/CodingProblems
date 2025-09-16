@@ -36,7 +36,7 @@ public class MergingIntervals {
     private static int[][] mergeIntervals(int[][] intervals) {
 
         //Sort in ascending order by the first element
-        Arrays.sort(intervals, Comparator.comparing(i->i[0]));
+        Arrays.sort(intervals, Comparator.comparingInt(i->i[0]));
 
         List<int[]> result = new ArrayList<>();
 

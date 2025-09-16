@@ -25,6 +25,12 @@ public class NMeetings {
         }
     }
 
+    /**
+     * Custom comparator to sort the meetings as per their end time
+     * If two meetings have the same end time, sort them as per their position
+     * This is to ensure that the meeting which came first in the input list
+     * is selected first in case of a tie in end times
+     */
     static class MeetingComparator implements Comparator<Meeting> {
         @Override
         public int compare(Meeting o1, Meeting o2) {
