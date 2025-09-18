@@ -22,6 +22,21 @@ public class Triplets {
 
     }
 
+    /**
+     * Find all unique triplets in the array which gives the sum of target
+     * The algorithm works as follows:
+     * 1. Sort the array
+     * 2. Iterate through the array and fix one element (arr[i])
+     * 3. Use two pointers (j and k) to find pairs that sum up to (target - arr[i])
+     * 4. Move the pointers based on the sum comparison
+     * 5. Skip duplicates to ensure unique triplets
+     * Time Complexity: O(n^2) due to sorting and the two-pointer technique
+     * Space Complexity: O(1) if we ignore the space used for sorting
+     * 
+     * @param arr Array of integers
+     * @param target Target sum
+     * @param n Length of the array
+     */
     public static void triplets(int[] arr, int target, int n) {
         Arrays.sort(arr); //O(nlogn)
         for (int i = 0; i < n; i++) { //O(n)
